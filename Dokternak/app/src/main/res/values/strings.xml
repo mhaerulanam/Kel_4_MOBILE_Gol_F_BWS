@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Dokternak</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">LANJUT</string>
+    <string name="skip">LEWATI</string>
+    <string name="start">MULAI</string>
+
+    <string name="slide_1_title">CARI PETUGAS</string>
+    <string name="slide_1_desc">Temukan Petugas Kesehatan Hewan Disekitar Tempat Tinggalmu</string>
+
+    <string name="slide_2_title">KONSULTASI</string>
+    <string name="slide_2_desc">Konsultasikan Keluhan Hewan Peliharaanmu Gratis!</string>
+
+    <string name="slide_3_title">BACA ARTIKEL</string>
+    <string name="slide_3_desc">Tingkatkan Wawasanmu di Dunia Peternakan dengan Membaca</string>
+
+    <string name="slide_4_title">PUSKESWAN</string>
+    <string name="slide_4_desc">Cari Puskeswan Terdekat Untuk Hewan Kesayanganmu yang Sakit</string>
+
+    <string name="reload">Ulangi Splash Screen</string>
+    <string name="ops">Oops! Maaf, Masih Proses Pembuatan.</string>
+</resources>
