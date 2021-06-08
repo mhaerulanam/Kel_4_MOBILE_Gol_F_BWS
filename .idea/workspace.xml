@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="328aaa02-1eed-46a3-86fe-d8ed3ea1e520" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Dokternak/app/src/main/java/com/def/dokternak/LoginActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dokternak/app/src/main/java/com/def/dokternak/Preferences.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dokternak/app/src/main/java/com/def/dokternak/RegisterActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dokternak/app/src/main/res/drawable/button_custom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dokternak/app/src/main/res/drawable/button_custom2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dokternak/app/src/main/res/drawable/button_custom_utama.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dokternak/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dokternak/app/src/main/res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokternak/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dokternak/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokternak/app/src/main/java/com/def/dokternak/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dokternak/app/src/main/java/com/def/dokternak/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokternak/app/src/main/java/com/def/dokternak/WelcomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dokternak/app/src/main/java/com/def/dokternak/WelcomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokternak/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dokternak/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokternak/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dokternak/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokternak/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dokternak/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokternak/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Dokternak/build.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1tbKQ2XwVaNJpDVJuJg6JsVPlWm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="328aaa02-1eed-46a3-86fe-d8ed3ea1e520" name="Default Changelist" comment="" />
+      <created>1623032328664</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623032328664</updated>
+    </task>
+    <servers />
+  </component>
+</project>

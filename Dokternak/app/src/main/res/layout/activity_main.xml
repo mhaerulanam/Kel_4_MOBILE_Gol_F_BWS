@@ -24,33 +24,75 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="39dp"
+        android:gravity="center"
+        android:text="Hallo!! Selamat Datang"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_namaMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="39dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        tools:text="Namaku adalah"/>
+
+
     <ImageView
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/ic_pets"
-        android:layout_marginTop="100dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_pets" />
 
     <TextView
-        android:layout_marginTop="230dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ops"
-        android:textColor="@color/colorAccent"
-        android:gravity="center"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="430dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/ops"
+        android:textColor="@color/colorAccent" />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="625dp"
-        android:text="@string/reload"
         android:layout_below="@+id/textView"
-        android:id="@+id/button"
-        android:backgroundTint="@color/bg_screen1"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="672dp"
+        android:layout_marginEnd="45dp"
+        android:backgroundTint="@color/bg_screen1"
+        android:text="@string/reload" />
+
+    <Button
+        android:id="@+id/button_logoutMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="632dp"
+        android:layout_marginEnd="157dp"
+        android:text="Log Out" />
 
 </RelativeLayout>
