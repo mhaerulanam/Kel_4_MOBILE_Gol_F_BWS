@@ -1,50 +1,65 @@
 package com.def.dokternak;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.view.MenuItem;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
-    Button button;
-    TextView nama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* Deklarasi dan Menginisialisasi variable nama dengan Label Nama dari Layout MainActivity */
-        nama = findViewById(R.id.tv_namaMain);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        /* Men-set Label Nama dengan data User sedang login dari Preferences */
-        nama.setText(Preferences.getLoggedInUser(getBaseContext()));
+        //Menampilkan halaman Fragment yang pertama kali muncul
+        getFragmentPage(new Home());
 
-        /* Men-set Status dan User yang sedang login menjadi default atau kosong di
-         * Data Preferences. Kemudian menuju ke LoginActivity*/
-        findViewById(R.id.button_logoutMain).setOnClickListener(new View.OnClickListener() {
+        /*Inisialisasi BottomNavigationView beserta listenernya untuk
+         *menangkap setiap kejadian saat salah satu menu item diklik
+         */
+        BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigationView);
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                //Menghapus Status login dan kembali ke Login Activity
-                Preferences.clearLoggedInUser(getBaseContext());
-                startActivity(new Intent(getBaseContext(),LoginActivity.class));
-                finish();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                Fragment fragment = null;
+
+                //Menantukan halaman Fragment yang akan tampil
+                switch (item.getItemId()){
+                    case R.id.home:
+                        fragment = new Home();
+                        break;
+
+                    case R.id.petugas:
+                        fragment = new Dokter();
+                        break;
+
+                    case R.id.artikel:
+                        fragment = new Artikel();
+                        break;
+                }
+                return getFragmentPage(fragment);
             }
         });
+    }
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PrefManager prefManager = new PrefManager(getApplicationContext());
-                prefManager.setFirstTimeLaunch(true);
-                startActivity(new Intent(MainActivity.this, SplashScreenActivity.class));
-                finish();
-                overridePendingTransition(R.layout.fadein_splash,R.layout.fadeout_splash);
-            }
-        });
+    private boolean getFragmentPage(Fragment fragment) {
+        if (fragment != null){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.page_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 }

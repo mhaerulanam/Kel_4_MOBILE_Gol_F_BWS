@@ -105,7 +105,8 @@ public class LoginActivity extends AppCompatActivity {
     private void masuk(){
         Preferences.setLoggedInUser(getBaseContext(),Preferences.getRegisteredUser(getBaseContext()));
         Preferences.setLoggedInStatus(getBaseContext(), true);
-        startActivity(new Intent(getBaseContext(),MainActivity.class));finish();
+        startActivity(new Intent(getBaseContext(),MainActivity.class));
+        finish();
     }
 
     /** True jika parameter password sama dengan data password yang terdaftar dari Preferences */
