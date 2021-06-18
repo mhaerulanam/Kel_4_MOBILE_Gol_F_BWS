@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -48,6 +50,16 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 return getFragmentPage(fragment);
+            }
+        });
+
+        findViewById(R.id.button_logoutMain).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Menghapus Status login dan kembali ke Login Activity
+                Preferences.clearLoggedInUser(getBaseContext());
+                startActivity(new Intent(getBaseContext(),LoginActivity.class));
+                finish();
             }
         });
     }
