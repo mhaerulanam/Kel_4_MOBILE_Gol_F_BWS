@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/dot_light_screen1"
-    android:minHeight="60dp"
+    android:minHeight="50dp"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:popupTheme="@style/Widget.AppCompat.Light.PopupMenu">
     <Button
         android:id="@+id/button_logoutMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="200dp"
+        android:textSize="5sp"
         android:text="Log Out" />
 </androidx.appcompat.widget.Toolbar>
