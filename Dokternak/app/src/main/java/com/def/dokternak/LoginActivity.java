@@ -9,11 +9,13 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
     EditText mViewUser, mViewPassword;
+    ImageButton buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,15 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(),RegisterActivity.class));
             }
         });
+
+//        findViewById(R.id.back_slide).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 
     /** ke MainActivity jika data Status Login dari Data Preferences bernilai true */

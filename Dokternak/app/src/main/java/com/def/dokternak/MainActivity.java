@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+//    Button buttonTerdekat,buttonSemua;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
         //Menampilkan halaman Fragment yang pertama kali muncul
         getFragmentPage(new Home());
+
+        //Menampilkan fragment terdekat sebagai fragment yang pertama kali muncul
+        KategoriTerdekatFragment terdekatFragment = new KategoriTerdekatFragment();
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().add(R.id.fragment_kategori,terdekatFragment).commit();
 
         /*Inisialisasi BottomNavigationView beserta listenernya untuk
          *menangkap setiap kejadian saat salah satu menu item diklik
@@ -74,4 +81,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
 }

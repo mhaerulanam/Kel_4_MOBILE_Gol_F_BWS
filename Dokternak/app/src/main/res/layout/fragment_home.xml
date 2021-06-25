@@ -13,4 +13,109 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="70dp"
+            android:background="@color/bg_screen1"
+            android:gravity="center"
+            android:text="Disini Banner"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <!-- Kategori Start -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Kategori"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <!-- ScrollView Horizontal -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/kat_terdekat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/button_kategori"
+                    android:text="Terdekat"
+                    android:textColor="@color/bg_screen1"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/kat_semua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/button_kategori"
+                    android:text="Semua"
+                    android:textColor="@color/bg_screen1"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/kat_dokter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/button_kategori"
+                    android:text="Dokter Hewan"
+                    android:textColor="@color/bg_screen1"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/kat_paramedis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/button_kategori"
+                    android:text="Paramedis"
+                    android:textColor="@color/bg_screen1"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/kat_ib"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/button_kategori"
+                    android:text="Petugas IB"
+                    android:textColor="@color/bg_screen1"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </HorizontalScrollView>
+        <!-- Fragment terdekat -->
+        <FrameLayout
+            android:id="@+id/fragment_kategori"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey">
+
+            <fragment
+                android:id="@+id/fragment_terdekat"
+                android:name="com.def.dokternak.KategoriTerdekatFragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>

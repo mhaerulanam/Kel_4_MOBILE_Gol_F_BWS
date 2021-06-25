@@ -8,7 +8,7 @@ import android.os.Handler;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    private int waktu_loading = 4000;
+    private int waktu_loading = 2000;
 
     /** 4000 = 4 detik */
 
