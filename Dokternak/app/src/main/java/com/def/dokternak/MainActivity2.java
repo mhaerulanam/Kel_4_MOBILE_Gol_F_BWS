@@ -8,6 +8,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.def.dokternak.ui.login.LoginActivity4;
+import com.def.dokternak.ui.splashscreen.SplashScreenActivity;
+import com.def.dokternak.utils.PrefManager;
+import com.def.dokternak.utils.Preferences;
+
 public class MainActivity2 extends AppCompatActivity {
 
     Button button;
@@ -31,7 +36,7 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 //Menghapus Status login dan kembali ke Login Activity
                 Preferences.clearLoggedInUser(getBaseContext());
-                startActivity(new Intent(getBaseContext(),LoginActivity.class));
+                startActivity(new Intent(getBaseContext(), LoginActivity4.class));
                 finish();
             }
         });

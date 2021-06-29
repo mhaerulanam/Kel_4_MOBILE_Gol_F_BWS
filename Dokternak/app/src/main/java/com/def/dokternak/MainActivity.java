@@ -4,18 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
+import com.def.dokternak.ui.artikel.ArtikelFragment;
+import com.def.dokternak.ui.home.Home;
+import com.def.dokternak.ui.petugas.PetugasFragment;
+import com.def.dokternak.ui.profile.ProfileFragment;
+import com.def.dokternak.ui.puskeswan.PuskeswanFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
-//    Button buttonTerdekat,buttonSemua;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Menampilkan halaman Fragment yang pertama kali muncul
         getFragmentPage(new Home());
-
-        //Menampilkan fragment terdekat sebagai fragment yang pertama kali muncul
-        KategoriTerdekatFragment terdekatFragment = new KategoriTerdekatFragment();
-        FragmentManager fm = getSupportFragmentManager();
-        fm.beginTransaction().add(R.id.fragment_kategori,terdekatFragment).commit();
 
         /*Inisialisasi BottomNavigationView beserta listenernya untuk
          *menangkap setiap kejadian saat salah satu menu item diklik
@@ -49,24 +44,20 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.petugas:
-                        fragment = new Dokter();
+                        fragment = new PetugasFragment();
                         break;
 
                     case R.id.artikel:
-                        fragment = new Artikel();
+                        fragment = new ArtikelFragment();
+                        break;
+                    case R.id.puskeswan:
+                        fragment = new PuskeswanFragment();
+                        break;
+                    case R.id.Profil:
+                        fragment = new ProfileFragment();
                         break;
                 }
                 return getFragmentPage(fragment);
-            }
-        });
-
-        findViewById(R.id.button_logoutMain).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Menghapus Status login dan kembali ke Login Activity
-                Preferences.clearLoggedInUser(getBaseContext());
-                startActivity(new Intent(getBaseContext(),LoginActivity.class));
-                finish();
             }
         });
     }
@@ -81,5 +72,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
-
 }

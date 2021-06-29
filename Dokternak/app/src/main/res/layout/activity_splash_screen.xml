@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:gravity="center"
-    tools:context=".SplashScreenActivity">
+    tools:context=".ui.splashscreen.SplashScreenActivity">
     
     <ImageView
         android:id="@+id/logo_dokternak"

@@ -21,8 +21,9 @@
     <string name="reload">Ulangi Splash Screen</string>
     <string name="ops">Oops! Maaf, Masih Proses Pembuatan.</string>
     <string name="password">Password</string>
-    <string name="username">Username</string>
+    <string name="username">username</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Temukan Petugas Kesehatan Hewan Dilingkungan Terdekat!</string>
 
 </resources>
