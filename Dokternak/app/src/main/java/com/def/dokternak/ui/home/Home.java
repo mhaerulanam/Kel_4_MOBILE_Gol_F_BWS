@@ -1,8 +1,6 @@
 package com.def.dokternak.ui.home;
 
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,12 +10,10 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,9 +25,6 @@ import com.def.dokternak.data.Model.petugas.Petugas;
 import com.def.dokternak.network.ApiClient;
 import com.def.dokternak.network.artikel.ApiArtikel;
 import com.def.dokternak.network.petugas.ApiPetugas;
-import com.def.dokternak.ui.artikel.ArtikelAdapter;
-import com.def.dokternak.ui.petugas.DetailPetugasActivity;
-import com.def.dokternak.ui.petugas.PetugasAdapter;
 import com.def.dokternak.ui.petugas.PetugasFragment;
 
 import org.jetbrains.annotations.Nullable;

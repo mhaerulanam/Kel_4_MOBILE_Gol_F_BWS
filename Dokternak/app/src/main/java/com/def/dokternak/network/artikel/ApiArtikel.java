@@ -1,10 +1,9 @@
 package com.def.dokternak.network.artikel;
 
 
-import com.def.dokternak.data.Model.GetKontak;
-import com.def.dokternak.data.Model.PostPutDelKontak;
 import com.def.dokternak.data.Model.artikel.GetArtikel;
 import com.def.dokternak.data.Model.artikel.GetArtikelDetail;
+import com.def.dokternak.data.Model.artikel.GetCariArtikel;
 import com.def.dokternak.data.Model.artikel.postPutDelArtikel;
 
 import retrofit2.Call;
@@ -15,6 +14,7 @@ import retrofit2.http.HTTP;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiArtikel {
     @GET("api_artikel")
@@ -48,4 +48,8 @@ public interface ApiArtikel {
 
     @GET("api_artikel/{id}")
     Call<GetArtikelDetail> getArtikelDetail(@Path("id") int id);
+
+    @GET("api_artikel/cari/artikel")
+    Call<GetCariArtikel> getCariArtikel(@Query("judul") String judul);
+
 }

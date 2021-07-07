@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SearchView;
 
 import com.def.dokternak.R;
 import com.def.dokternak.data.Model.artikel.Artikel;
@@ -44,6 +47,7 @@ public class PetugasFragment extends Fragment {
     private PetugasAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     public static PetugasFragment ma;
+    private SearchView svCariPetugas;
 
     @Nullable
     @Override
@@ -57,6 +61,24 @@ public class PetugasFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @androidx.annotation.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mApiPetugas = ApiClient.getClient().create(ApiPetugas.class);
+        svCariPetugas = view.findViewById(R.id.pencarian);
+        svCariPetugas.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                Bundle bundle = new Bundle();
+                bundle.putString("nama", s);
+                transaction.replace(R.id.page_container, PetugasFragment.class, bundle).commit();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             String myString = bundle.getString("nama");
