@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tv_maps" type="id"/>
+    <item name="tv_telpon" type="id"/>
+    <item name="tv_dnama_dokter" type="id"/>
+    <item name="tv_jenis_kelamin" type="id"/>
+    <item name="tv_jadwal" type="id"/>
+    <item name="tv_djabatan" type="id"/>
+    <item name="tv_email" type="id"/>
+    <item name="img_gambar_petugas" type="id"/>
+</resources>
