@@ -48,7 +48,6 @@ public class DetailPuskeswanActivity extends AppCompatActivity {
         tvNamaPuskeswan = findViewById(R.id.tv_nama_puskeswan);
         tvJamKerja = findViewById(R.id.tv_jadwal_puskeswan);
         tvAlamat = findViewById(R.id.tv_alamat_puskeswan);
-        tvMaps = findViewById(R.id.tv_maps);
         btnLokasi = findViewById(R.id.btn_lokasi);
         imgBtnBack = findViewById(R.id.img_btn_back);
         imgBtnBack.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +82,6 @@ public class DetailPuskeswanActivity extends AppCompatActivity {
                 tvAlamat.setText(puskeswan.getAlamat());
                 tvJamKerja.setText(puskeswan.getJamKerja());
                 url = puskeswan.getMaps();
-                Toast.makeText(getApplicationContext(), "Detail Puskeswan Tampil" + idPuskeswan, Toast.LENGTH_LONG).show();
                 Glide.with(getApplicationContext())
                         .load(PUSKESWAN_IMAGE_BASE_URL + puskeswan.getGambar())
                         .into(imgThumbnail);
