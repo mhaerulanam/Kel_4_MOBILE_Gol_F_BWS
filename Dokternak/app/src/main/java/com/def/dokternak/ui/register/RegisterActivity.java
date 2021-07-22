@@ -17,6 +17,7 @@ import com.def.dokternak.R;
 import com.def.dokternak.data.Model.users.PostUser;
 import com.def.dokternak.network.ApiClient;
 import com.def.dokternak.network.users.ApiUser;
+import com.def.dokternak.ui.login.LoginActivity;
 import com.def.dokternak.utils.Preferences;
 
 import org.jetbrains.annotations.NotNull;
@@ -124,7 +125,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+//        super.onBackPressed();
+        Intent mLogin = new Intent(RegisterActivity.this, LoginActivity.class);
+        startActivity(mLogin);
         finish();
     }
 }
