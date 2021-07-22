@@ -21,7 +21,7 @@ public class Petugas {
     private String foto;
     @SerializedName("sertifikasi")
     private String sertifikasi;
-    @SerializedName("id_jabatan")
+    @SerializedName("jabatan")
     private String idJabatan;
     @SerializedName("jadwal_kerja")
     private String jadwalKerja;

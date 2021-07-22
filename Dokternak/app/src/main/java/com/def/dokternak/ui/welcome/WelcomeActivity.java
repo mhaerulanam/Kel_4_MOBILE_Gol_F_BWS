@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.def.dokternak.R;
 import com.def.dokternak.ui.login.LoginActivity;
+import com.def.dokternak.ui.login.LoginActivity4;
 import com.def.dokternak.utils.PrefManager;
 
 public class WelcomeActivity extends AppCompatActivity {

@@ -35,13 +35,13 @@ public class Artikel2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_artikel);
 
-        btIns = (Button) findViewById(R.id.btIns);
-        btIns.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Artikel2.this, InsertActivity.class));
-            }
-        });
+//        btIns = (Button) findViewById(R.id.btIns);
+//        btIns.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(Artikel2.this, InsertActivity.class));
+//            }
+//        });
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);

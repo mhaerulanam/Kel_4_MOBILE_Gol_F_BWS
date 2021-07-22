@@ -16,7 +16,7 @@ import com.def.dokternak.network.ApiClient;
 import com.def.dokternak.network.users.ApiUser;
 import com.def.dokternak.utils.Preferences;
 import com.def.dokternak.R;
-import com.def.dokternak.ui.register.RegisterActivity;
+import com.def.dokternak.ui.register.RegisterActivityBackup;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,7 +35,7 @@ public class LoginActivity4 extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         /* Menginisialisasi variable dengan Form User dan Form Password dari Layout LoginActivity */
-        mViewUser=findViewById(R.id.et_userameMasuk);
+        mViewUser=findViewById(R.id.et_emailMasuk);
         mViewPassword =findViewById(R.id.et_passwordMasuk);
 
         btnLogin = findViewById(R.id.button_signinSignin);
@@ -55,7 +55,7 @@ public class LoginActivity4 extends AppCompatActivity {
         findViewById(R.id.button_signupSignin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), RegisterActivity.class));
+                startActivity(new Intent(getBaseContext(), RegisterActivityBackup.class));
             }
         });
     }
@@ -118,8 +118,8 @@ public class LoginActivity4 extends AppCompatActivity {
 
     /** Menuju ke MainActivity dan Set User dan Status sedang login, di Preferences */
     private void masuk(){
-        Preferences.setLoggedInUser(getBaseContext(),Preferences.getRegisteredUser(getBaseContext()));
-        Preferences.setLoggedInStatus(getBaseContext(), true);
+//        Preferences.setLoggedInUser(getBaseContext(),Preferences.getRegisteredUser(getBaseContext()));
+//        Preferences.setLoggedInStatus(getBaseContext(), true);
         startActivity(new Intent(getBaseContext(),MainActivity.class));
         finish();
     }

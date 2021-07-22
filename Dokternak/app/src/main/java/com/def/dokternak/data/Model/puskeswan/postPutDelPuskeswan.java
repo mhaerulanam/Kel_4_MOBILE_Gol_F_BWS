@@ -1,6 +1,5 @@
 package com.def.dokternak.data.Model.puskeswan;
 
-import com.def.dokternak.data.Model.petugas.Petugas;
 import com.google.gson.annotations.SerializedName;
 
 public class postPutDelPuskeswan {

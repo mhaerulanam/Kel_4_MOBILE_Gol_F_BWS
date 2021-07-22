@@ -1,28 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.profile.ProfileFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
-    <TextView
-        android:id="@+id/tv_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Fragmaent Profile"
-        app:layout_constraintEnd_toEndOf="parent"
+    <LinearLayout
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_logoutMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log Out"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="405dp">
+            <LinearLayout
+                android:background="@drawable/gradientbackground"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:textSize="21sp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_profileUser"
+                    android:elevation="20dp"
+                    android:src="@drawable/bg_gunung"
+                    android:layout_marginTop="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp" />
+
+
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="275dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/salam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hai!"
+                            android:textSize="20sp"
+                            />
+                        <TextView
+                            android:id="@+id/tv_namaUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mohammad Haerul Anam"
+                            android:textStyle="bold"
+                            android:textColor="@color/dark"
+                            android:textSize="20sp"
+                            android:paddingTop="10dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_email_black_24dp"/>
+                <TextView
+                    android:id="@+id/tv_emailUser"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:text="Anam@gmail.com"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imgNoHP"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_phone_android_black_24dp"/>
+                <TextView
+                    android:id="@+id/tv_noHpUser"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:text="+266 225 225"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imgJenisKelamin"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_jenis_kelamin"/>
+                <TextView
+                    android:id="@+id/tv_jenisKelaminUser"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:text="Laki-laki"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imgAlamat"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_baseline_my_location_24"/>
+                <TextView
+                    android:id="@+id/tv_alamatUser"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:text="Bondowoso"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                >
+                //Button Logout
+<!--                <Button-->
+<!--                    android:id="@+id/button_editProfile"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:background="@drawable/button_custom2"-->
+<!--                    android:textColor="@color/dark"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Edit Profile"-->
+<!--                    android:layout_alignParentBottom="true"-->
+<!--                    android:textSize="10dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    />-->
+
+                <Button
+                    android:id="@+id/button_logoutMain"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/button_custom_utama"
+                    android:layout_height="wrap_content"
+                    android:text="Log Out"
+                    android:textSize="10dp"
+                    android:layout_alignParentBottom="true"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

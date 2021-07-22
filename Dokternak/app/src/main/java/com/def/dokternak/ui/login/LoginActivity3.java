@@ -3,7 +3,6 @@ package com.def.dokternak.ui.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,19 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.def.dokternak.MainActivity;
 import com.def.dokternak.R;
-import com.def.dokternak.data.Model.users.PostUser;
-import com.def.dokternak.data.Model.users.User;
-import com.def.dokternak.network.ApiClient;
 import com.def.dokternak.network.users.ApiUser;
 import com.def.dokternak.ui.petugas.PetugasAdapter;
-import com.def.dokternak.ui.register.RegisterActivity;
+import com.def.dokternak.ui.register.RegisterActivityBackup;
 import com.def.dokternak.utils.Preferences;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginActivity3 extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -41,7 +31,7 @@ public class LoginActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         /* Menginisialisasi variable dengan Form User dan Form Password dari Layout LoginActivity */
-        mViewUser=findViewById(R.id.et_userameMasuk);
+//        mViewUser=findViewById(R.id.et_userameMasuk);
         mViewPassword =findViewById(R.id.et_passwordMasuk);
         /* Menjalankan Method razia() Jika tombol SignIn di keyboard di sentuh *//*
         mViewPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -96,7 +86,7 @@ public class LoginActivity3 extends AppCompatActivity {
         findViewById(R.id.button_signupSignin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), RegisterActivity.class));
+                startActivity(new Intent(getBaseContext(), RegisterActivityBackup.class));
             }
         });
     }
@@ -132,8 +122,8 @@ public class LoginActivity3 extends AppCompatActivity {
 
     /** Menuju ke MainActivity dan Set User dan Status sedang login, di Preferences */
     private void masuk(){
-        Preferences.setLoggedInUser(getBaseContext(),Preferences.getRegisteredUser(getBaseContext()));
-        Preferences.setLoggedInStatus(getBaseContext(), true);
+//        Preferences.setLoggedInUser(getBaseContext(),Preferences.getRegisteredUser(getBaseContext()));
+//        Preferences.setLoggedInStatus(getBaseContext(), true);
         startActivity(new Intent(getBaseContext(),MainActivity.class));
         finish();
     }

@@ -6,31 +6,131 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.petugas.PetugasFragment">
 
-    <TextView
-        android:id="@+id/tvPetugas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Petugas"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/blue"
-        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvPetugas"
+            android:text = "Daftar Petugas"
+            android:layout_width="wrap_content"
+            android:layout_height = "wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/blue"
+            android:textSize = "20dp"
+            android:layout_alignParentTop = "true"
+            android:layout_centerHorizontal = "true" />
+    </RelativeLayout>
+
     <SearchView
         android:id="@+id/pencarian"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="110dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_shadow_search"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/pencarian">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/pencarian">
+
+            <Button
+                android:id="@+id/kategori_terdekat"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="TERDEKAT"
+                android:textColor="@color/blue"
+                android:textSize="10sp"
+                android:theme="@style/buttonstyle" />
+
+            <Button
+                android:id="@+id/kategori_semua"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="SEMUA"
+                android:textColor="@color/blue"
+                android:textSize="10sp"
+                android:theme="@style/buttonstyle" />
+
+            <Button
+                android:id="@+id/kategori_dokter"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="DOKTER"
+                android:textColor="@color/blue"
+                android:textSize="10sp"
+                android:theme="@style/buttonstyle" />
+
+            <Button
+                android:id="@+id/kategori_paramedis"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="PARAMEDIS"
+                android:textColor="@color/blue"
+                android:textSize="10sp"
+                android:theme="@style/buttonstyle" />
+
+            <Button
+                android:id="@+id/kategori_petugas_ib"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="PETUGAS IB"
+                android:textColor="@color/blue"
+                android:textSize="10sp"
+                android:theme="@style/buttonstyle" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/alert_data_kosong"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:fontFamily="@font/lato_black"
+        android:text="@string/alertDataKosong"
+        android:layout_centerHorizontal = "true"
+        android:textColor="@color/blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        />
+    </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
+        android:layout_marginTop="180dp"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="653dp"
-        android:layout_below="@+id/tvPetugas"
-        android:layout_marginTop="80dp"
-        android:scrollbars="vertical" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvPetugas"/>
 </FrameLayout>

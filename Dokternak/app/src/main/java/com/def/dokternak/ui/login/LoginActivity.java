@@ -1,8 +1,5 @@
 package com.def.dokternak.ui.login;
 
-import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -20,29 +17,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.def.dokternak.MainActivity;
 import com.def.dokternak.R;
 import com.def.dokternak.data.Model.users.PostUser;
+import com.def.dokternak.data.Model.users.User;
 import com.def.dokternak.network.ApiClient;
 import com.def.dokternak.network.users.ApiUser;
 import com.def.dokternak.ui.register.RegisterActivity;
-import com.def.dokternak.ui.register.RegisterActivityBackup;
 import com.def.dokternak.utils.Preferences;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText edtEmail, edtPassword;
-    Button btnLogin, btnDaftar;
-
-    ProgressDialog loading;
-    Context mContext;
-    ApiUser apiUser;
+    EditText mViewUser, mViewPassword;
+    ApiUser mApiUser;
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,104 +38,42 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         /* Menginisialisasi variable dengan Form User dan Form Password dari Layout LoginActivity */
-        edtEmail = findViewById(R.id.edt_email);
-        edtPassword =findViewById(R.id.edt_password);
-        btnLogin = findViewById(R.id.btn_login);
-        btnDaftar = findViewById(R.id.btn_daftar);
-
-        Klik();
-    }
-
-    private void Klik(){
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        mViewUser=findViewById(R.id.et_emailMasuk);
+        mViewPassword =findViewById(R.id.et_passwordMasuk);
+        /* Menjalankan Method razia() Jika tombol SignIn di keyboard di sentuh */
+        mViewPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onClick(View v) {
-                validasi();
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_NULL) {
+                    validateUserData();
+                    return true;
+                }
+                return false;
             }
         });
 
-        btnDaftar.setOnClickListener(new View.OnClickListener() {
+        /* Menjalankan Method razia() jika merasakan tombol SignIn disentuh */
+        findViewById(R.id.button_signinSignin).setOnClickListener(new View.OnClickListener() {
+//            if(TextUtils.isEmpty(mViewUser.getText().toString()) || TextUtils.isEmpty(password.getText().toString())){
+//                Toast.makeText(MainActivity.this,"Username / Password Required", Toast.LENGTH_LONG).show();
+//            }else{
+//                //proceed to login
+//                login();
+//            }
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(mIntent);
-                finish();
+                validateUserData();
             }
         });
-    }
 
-    private void validasi() {
-        String mName = edtEmail.getText().toString().trim();
-        String mPassword = edtPassword.getText().toString().trim();
 
-        if (TextUtils.isEmpty(mName)) {
-            edtEmail.setError("Nama tidak boleh kosong");
-            edtEmail.requestFocus();
-            return;
-        } else if (TextUtils.isEmpty(mPassword)) {
-            edtPassword.setError("Password tidak boleh kosong");
-            edtPassword.requestFocus();
-            return;
-        }else {
-            loading = ProgressDialog.show(mContext, null,
-                    "Harap Tunggu...", true, false);
-            requestLogin();
-        }
-    }
-
-    private void requestLogin() {
-        apiUser = ApiClient.getClient().create(ApiUser.class);
-        Call<PostUser> loginResponseCall = apiUser.postLoginUser(edtEmail.getText().toString(),
-                edtPassword.getText().toString());
-        loginResponseCall.enqueue(new Callback<PostUser>() {
-                    @Override
-                    public void onResponse(Call<PostUser> call, Response<PostUser> response) {
-                        loading.dismiss();
-                        Toast.makeText(getApplicationContext(), "Login Berhasil!", Toast.LENGTH_LONG).show();
-
-                        //Pindah ke Main Activity
-                        Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(mIntent);
-                        finish();
-//                        if (response.isSuccessful()){
-//                            loading.dismiss();
-//                            Toast.makeText(getApplicationContext(), "Login Berhasil!", Toast.LENGTH_LONG).show();
-//
-//                            //Pindah ke Main Activity
-//                            Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
-//                            startActivity(mIntent);
-//                            finish();
-//
-////                            try {
-////                                JSONObject jsonRESULTS = new JSONObject(response.body().toString());
-////                                if (jsonRESULTS.getString("error").equals("false")){
-////                                    // Jika login berhasil maka data nama yang ada di response API
-////                                    // akan diparsing ke activity selanjutnya.
-////                                    Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
-////                                    String nama = jsonRESULTS.getJSONObject("user").getString("nama");
-////                                    Intent intent = new Intent(mContext, MainActivity.class);
-////                                    intent.putExtra("result_nama", nama);
-////                                    startActivity(intent);
-////                                } else {
-////                                    // Jika login gagal
-////                                    String error_message = jsonRESULTS.getString("error_msg");
-////                                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
-////                                }
-////                            } catch (JSONException e) {
-////                                e.printStackTrace();
-////                            }
-//                        } else {
-//                            loading.dismiss();
-//                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<PostUser> call, Throwable t) {
-//                        Log.e("debug", "onFailure: ERROR > " + t.toString());
-                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
-                        loading.dismiss();
-                    }
-                });
+        /* Ke RegisterActivity jika merasakan tombol SignUp disentuh */
+        findViewById(R.id.button_signupSignin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), RegisterActivity.class));
+            }
+        });
     }
 
 
@@ -161,15 +87,114 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    /** Menuju ke MainActivity dan Set User dan Status sedang login, di Preferences */
-    private void masuk(){
-        Preferences.setLoggedInUser(getBaseContext(),Preferences.getRegisteredUser(getBaseContext()));
-        Preferences.setLoggedInStatus(getBaseContext(), true);
-        startActivity(new Intent(getBaseContext(),MainActivity.class));
-        finish();
+    /** Men-check inputan User dan Password dan Memberikan akses ke MainActivity */
+//    private void razia(){
+//        /* Mereset semua Error dan fokus menjadi default */
+//        mViewUser.setError(null);
+//        mViewPassword.setError(null);
+//        View fokus = null;
+//        boolean cancel = false;
+//
+//        /* Mengambil text dari form User dan form Password dengan variable baru bertipe String*/
+//        String user = mViewUser.getText().toString();
+//        String password = mViewPassword.getText().toString();
+//
+//        /* Jika form user kosong atau TIDAK memenuhi kriteria di Method cekUser() maka, Set error
+//         *  di Form User dengan menset variable fokus dan error di Viewnya juga cancel menjadi true*/
+//        if (TextUtils.isEmpty(user)){
+//            mViewUser.setError("This field is required");
+//            fokus = mViewUser;
+//            cancel = true;
+//        }else if(!cekUser(user)){
+//            mViewUser.setError("This Username is not found");
+//            fokus = mViewUser;
+//            cancel = true;
+//        }
+//
+//        /* Sama syarat percabangannya dengan User seperti di atas. Bedanya ini untuk Form Password*/
+//        if (TextUtils.isEmpty(password)){
+//            mViewPassword.setError("This field is required");
+//            fokus = mViewPassword;
+//            cancel = true;
+//        }else if (!cekPassword(password)){
+//            mViewPassword.setError("This password is incorrect");
+//            fokus = mViewPassword;
+//            cancel = true;
+//        }
+//
+//        /* Jika cancel true, variable fokus mendapatkan fokus */
+//        if (cancel) fokus.requestFocus();
+//        else
+//        masuk();
+//    }
+
+    private void validateUserData() {
+
+        Toast.makeText(getApplicationContext(),"MasukValidate",Toast.LENGTH_SHORT);
+
+        final String email = mViewUser.getText().toString();
+        final String password = mViewPassword.getText().toString();
+
+        if (TextUtils.isEmpty(email)){
+            mViewUser.setError("Email tidak boleh kosong");
+            mViewUser.requestFocus();
+            btnLogin.setEnabled(true);
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)){
+            mViewUser.setError("Password tidak boleh kosong");
+            mViewUser.requestFocus();
+            btnLogin.setEnabled(true);
+            return;
+        }
+
+        loginUser(email, password);
+
     }
 
-    /**DIBAWAH MASIH SALAH, BELUM TERHUBUNG KE API */
+    private void loginUser(String email, String password) {
+        Toast.makeText(getApplicationContext(), "Heiii",Toast.LENGTH_SHORT);
+        mApiUser = ApiClient.getClient().create(ApiUser.class);
+        Call<PostUser> loginResponseCall = mApiUser.postLoginUser(email, password);
+
+        loginResponseCall.enqueue(new Callback<PostUser>() {
+            @Override
+            public void onResponse(Call<PostUser> call, Response<PostUser> response) {
+                int code = response.code();
+
+//                Log.d("Data", response.body().getData().toString());
+
+                if (response.code() == 402){
+                    Toast.makeText(LoginActivity.this, "Gagal Login!, Email Salah", Toast.LENGTH_LONG).show();
+                }else if(response.code() == 403){
+                    Toast.makeText(LoginActivity.this, "Gagal Login!, Password Salah", Toast.LENGTH_LONG).show();
+                }else if(response.code() == 401){
+                    Toast.makeText(LoginActivity.this, "Gagal Login!, Password anda Benar, tetapi email Salah", Toast.LENGTH_LONG).show();
+                }else if (response.code() == 200){
+                    masuk(response.body().getData());
+                }else{
+                    Toast.makeText(LoginActivity.this, "Gagal Login!, Email dan Passsword Salah", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PostUser> call, Throwable t) {
+//                Toast.makeText(LoginActivity.this,t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    /** Menuju ke MainActivity dan Set User dan Status sedang login, di Preferences */
+    private void masuk(User user){
+        Preferences.setLoggedInUser(LoginActivity.this, user.getEmail());
+        Preferences.setLoggedInStatus(getBaseContext(), true);
+        Preferences.saveData(LoginActivity.this, user);
+        startActivity(new Intent(getBaseContext(),MainActivity.class));
+        finish();
+        Toast.makeText(getApplicationContext(), "Login Berhasil, Hai "+ user.getNamaPeternak(), Toast.LENGTH_LONG).show();
+    }
+
     /** True jika parameter password sama dengan data password yang terdaftar dari Preferences */
     private boolean cekPassword(String password){
         return password.equals(Preferences.getRegisteredPass(getBaseContext()));

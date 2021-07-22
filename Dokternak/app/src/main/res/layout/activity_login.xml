@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.login.LoginActivity">
-
+    android:gravity="center"
+    android:padding="18dp"
+    android:orientation="vertical"
+    tools:context=".ui.login.LoginActivity4">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +48,7 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/edt_email"
+                        android:id="@+id/et_emailMasuk"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="@null"
@@ -89,11 +90,10 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:passwordToggleEnabled="true">
+                    android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/edt_password"
+                        android:id="@+id/et_passwordMasuk"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="@null"
@@ -114,7 +114,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/button_signinSignin"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="30dp"
@@ -150,7 +150,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_daftar"
+            android:id="@+id/button_signupSignin"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/button_custom2"
@@ -167,4 +167,4 @@
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
-</RelativeLayout>
+</LinearLayout>

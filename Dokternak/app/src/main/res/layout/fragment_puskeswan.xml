@@ -5,21 +5,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.puskeswan.PuskeswanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tvPetugas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Puskeswan"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/blue" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvPetugas"
+            android:text = "Daftar Puskeswan"
+            android:layout_width="wrap_content"
+            android:layout_height = "wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/blue"
+            android:textSize = "20dp"
+            android:layout_alignParentTop = "true"
+            android:layout_centerHorizontal = "true" />
+    </RelativeLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

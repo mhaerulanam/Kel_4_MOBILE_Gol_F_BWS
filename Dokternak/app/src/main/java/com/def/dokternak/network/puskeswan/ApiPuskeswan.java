@@ -1,9 +1,5 @@
 package com.def.dokternak.network.puskeswan;
 
-import com.def.dokternak.data.Model.petugas.GetCariPetugas;
-import com.def.dokternak.data.Model.petugas.GetPetugas;
-import com.def.dokternak.data.Model.petugas.GetPetugasDetail;
-import com.def.dokternak.data.Model.petugas.postPutDelPetugas;
 import com.def.dokternak.data.Model.puskeswan.GetCariPuskeswan;
 import com.def.dokternak.data.Model.puskeswan.GetPuskeswan;
 import com.def.dokternak.data.Model.puskeswan.GetPuskeswanDetail;

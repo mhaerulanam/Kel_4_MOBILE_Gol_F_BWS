@@ -3,25 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
     android:layout_marginStart="16dp"
-    android:layout_marginBottom="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_shadow"
-        app:layout_constraintBottom_toBottomOf="@+id/img"
-        app:layout_constraintTop_toBottomOf="@+id/img"
-        app:layout_constraintVertical_bias="0.617"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="100dp">
+        android:background="@drawable/bg_shadow">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="360dp"
+            android:layout_height="130dp"
             android:background="@drawable/bg_shadow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" >
@@ -29,19 +25,25 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/img_gamabarPuskeswan"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/bg_gunung"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:id="@+id/tv_nama_puskeswan"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_namaPuskeswan"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="85dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
                     android:textColor="@color/blue"
-                    android:gravity="center"
+                    android:layout_toEndOf="@+id/img_gamabarPuskeswan"
                     android:hint="Puskeswan Tapen"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/tv_id"
@@ -56,30 +58,18 @@
                     android:textStyle="normal" />
 
                 <TextView
-                    android:id="@+id/tv_alamat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:id="@+id/tv_alamatPuskeswan"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:layout_toEndOf="@id/img_gamabarPuskeswan"
+                    android:layout_below="@+id/tv_namaPuskeswan"
+                    android:layout_marginTop="8dp"
                     android:hint="Alamat"
-                    android:textSize="8sp"
+                    android:textSize="10sp"
                     android:textStyle="normal" />
 
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/img"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:elevation="20dp"
-        android:src="@drawable/bg_gunung"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

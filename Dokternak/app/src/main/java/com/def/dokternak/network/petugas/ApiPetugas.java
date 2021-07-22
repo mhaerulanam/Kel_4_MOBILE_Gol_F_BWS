@@ -1,8 +1,11 @@
 package com.def.dokternak.network.petugas;
 
+import com.def.dokternak.data.Model.kategori.GetKategori;
 import com.def.dokternak.data.Model.petugas.GetCariPetugas;
+import com.def.dokternak.data.Model.petugas.GetKategoriPetugas;
 import com.def.dokternak.data.Model.petugas.GetPetugas;
 import com.def.dokternak.data.Model.petugas.GetPetugasDetail;
+import com.def.dokternak.data.Model.petugas.GetTerdekatPetugas;
 import com.def.dokternak.data.Model.petugas.postPutDelPetugas;
 
 import retrofit2.Call;
@@ -51,4 +54,12 @@ public interface ApiPetugas {
     //uri pencarian
     @GET("api_petugas/cari/petugas")
     Call<GetCariPetugas> getCariPetugas(@Query("nama_dokter") String nama_dokter);
+
+    //uri kategori
+    @GET("api_petugas/kategori/petugas")
+    Call<GetKategoriPetugas> getKategoriPetugas(@Query("jabatan") String jabatan);
+
+    //uri terdekat
+    @GET("api_petugas/terdekat/petugas")
+    Call<GetTerdekatPetugas> getTerdekatPetugas(@Query("alamat") String alamat);
 }

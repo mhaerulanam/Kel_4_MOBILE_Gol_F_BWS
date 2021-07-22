@@ -44,14 +44,14 @@ public class kontak extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view=  inflater.inflate(R.layout.fragment_artikel, container, false);
-        btIns = (Button) view.findViewById(R.id.btIns);
-        btIns.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(), InsertActivity.class));
-
-            }
-        });
+//        btIns = (Button) view.findViewById(R.id.btIns);
+//        btIns.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getContext(), InsertActivity.class));
+//
+//            }
+//        });
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(getContext());

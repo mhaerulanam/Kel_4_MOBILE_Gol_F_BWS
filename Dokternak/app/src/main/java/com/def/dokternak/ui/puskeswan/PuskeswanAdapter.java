@@ -70,9 +70,9 @@ public class PuskeswanAdapter extends RecyclerView.Adapter<PuskeswanAdapter.MyVi
         public MyViewHolder(View itemView) {
             super(itemView);
             mTextViewId = itemView.findViewById(R.id.tv_id);
-            mTextViewNamaPuskeswan = itemView.findViewById(R.id.tv_nama_puskeswan);
-            mTextViewAlamat = itemView.findViewById(R.id.tv_alamat);
-            imgThumbnail = itemView.findViewById(R.id.img);
+            mTextViewNamaPuskeswan = itemView.findViewById(R.id.tv_namaPuskeswan);
+            mTextViewAlamat = itemView.findViewById(R.id.tv_alamatPuskeswan);
+            imgThumbnail = itemView.findViewById(R.id.img_gamabarPuskeswan);
         }
     }
 }

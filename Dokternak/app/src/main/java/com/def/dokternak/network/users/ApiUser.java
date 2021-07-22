@@ -1,7 +1,5 @@
 package com.def.dokternak.network.users;
 
-import com.def.dokternak.data.Model.petugas.GetPetugas;
-import com.def.dokternak.data.Model.petugas.postPutDelPetugas;
 import com.def.dokternak.data.Model.users.GetUser;
 import com.def.dokternak.data.Model.users.PostUser;
 
@@ -31,7 +29,7 @@ public interface ApiUser {
     @FormUrlEncoded
     @POST("api_users/register/peternak")
     Call<PostUser> postRegisterUser(
-                               @Field("name") String name,
-                               @Field("email") String email,
-                               @Field("password") String password);
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("password") String password);
 }

@@ -62,8 +62,8 @@ public class PuskeswanFragment extends Fragment {
             refresh();
         }
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(mLayoutManager);
         ma=this;
     }
 
@@ -72,7 +72,7 @@ public class PuskeswanFragment extends Fragment {
         puskeswanCall.enqueue(new Callback<GetPuskeswan>() {
             @Override
             public void onResponse(Call<GetPuskeswan> call, Response<GetPuskeswan> response) {
-                 List<Puskeswan> puskeswanList = response.body().getListDataPuskeswan();
+                List<Puskeswan> puskeswanList = response.body().getListDataPuskeswan();
                 Log.d("Retrofit Get", "Jumlah data Puskeswan: " +
                         String.valueOf(puskeswanList.size()));
                 mAdapter = new PuskeswanAdapter(puskeswanList);

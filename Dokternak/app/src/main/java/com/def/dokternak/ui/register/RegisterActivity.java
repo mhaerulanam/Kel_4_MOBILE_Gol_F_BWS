@@ -1,7 +1,5 @@
 package com.def.dokternak.ui.register;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,9 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.def.dokternak.MainActivity;
 import com.def.dokternak.R;
 import com.def.dokternak.data.Model.users.PostUser;
+import com.def.dokternak.data.Model.users.User;
 import com.def.dokternak.network.ApiClient;
 import com.def.dokternak.network.users.ApiUser;
 import com.def.dokternak.ui.login.LoginActivity;
@@ -91,11 +92,11 @@ public class RegisterActivity extends AppCompatActivity {
             public void onResponse(@NotNull Call<PostUser> call, @NotNull Response<PostUser> response) {
                 loading.dismiss();
                 Toast.makeText(getApplicationContext(), "Registrasi Berhasil!", Toast.LENGTH_LONG).show();
-
+                masuk(response.body().getData());
                 //Pindah ke Main Activity
-                Intent mIntent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(mIntent);
-                finish();
+//                Intent mIntent = new Intent(RegisterActivity.this, MainActivity.class);
+//                startActivity(mIntent);
+//                finish();
 
 //                if (response.isSuccessful()){
 //                    loading.dismiss();
@@ -121,6 +122,15 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    /** Menuju ke MainActivity dan Set User dan Status sedang login, di Preferences */
+    private void masuk(User user){
+        Preferences.setLoggedInUser(RegisterActivity.this, user.getEmail());
+        Preferences.setLoggedInStatus(getBaseContext(), true);
+        Preferences.saveData(RegisterActivity.this, user);
+        startActivity(new Intent(getBaseContext(),MainActivity.class));
+        finish();
     }
 
     @Override

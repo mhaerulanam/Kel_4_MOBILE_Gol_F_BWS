@@ -4,6 +4,7 @@ package com.def.dokternak.network.artikel;
 import com.def.dokternak.data.Model.artikel.GetArtikel;
 import com.def.dokternak.data.Model.artikel.GetArtikelDetail;
 import com.def.dokternak.data.Model.artikel.GetCariArtikel;
+import com.def.dokternak.data.Model.artikel.GetKategoriArtikel;
 import com.def.dokternak.data.Model.artikel.postPutDelArtikel;
 
 import retrofit2.Call;
@@ -22,7 +23,7 @@ public interface ApiArtikel {
 
     @FormUrlEncoded
     @POST("api_artikel")
-    Call<postPutDelArtikel> postArtikel(@Field("id_ktg") int id_ktg ,
+    Call<postPutDelArtikel> postArtikel(@Field("kategori_artikel") String id_ktg ,
                                       @Field("tanggal") String tanggal ,
                                       @Field("nama_penulis") String nama_penulis ,
                                       @Field("judul") String judul ,
@@ -49,7 +50,11 @@ public interface ApiArtikel {
     @GET("api_artikel/{id}")
     Call<GetArtikelDetail> getArtikelDetail(@Path("id") int id);
 
+    //uri pencarian
     @GET("api_artikel/cari/artikel")
     Call<GetCariArtikel> getCariArtikel(@Query("judul") String judul);
 
+    //uri kategori
+    @GET("api_artikel/kategori/artikel")
+    Call<GetKategoriArtikel> getKategoriArtikel(@Query("kategori_artikel") String kategori_artikel);
 }

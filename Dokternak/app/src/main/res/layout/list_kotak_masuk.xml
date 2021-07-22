@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_shadow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_shadow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_petugas"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/bg_gunung" />
+
+                <TextView
+                    android:id="@+id/tv_nama_dokter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:hint="Drh. Ardan"
+                    android:textColor="@color/blue"
+                    android:layout_toEndOf="@+id/img_petugas"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_respon"
+                    android:layout_width="250dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/tv_nama_dokter"
+                    android:layout_toEndOf="@+id/img_petugas"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:hint="Respon Konsultasi"
+                    android:textAlignment="textStart"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_tanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/tv_nama_dokter"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="Tanggal"
+                    android:textAlignment="textEnd"
+                    android:textSize="8sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="6sp"
+                    android:textStyle="normal" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

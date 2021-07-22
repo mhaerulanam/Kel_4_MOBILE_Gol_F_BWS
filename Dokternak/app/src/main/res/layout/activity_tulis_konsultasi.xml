@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:id="@+id/activity_insert"
+    tools:context=".ui.konsultasi.TulisKonsultasiActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:text = "Tulis Konsultasi"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/textview"
+        android:textSize = "20dp"
+        android:layout_alignParentTop = "true"
+        android:layout_centerHorizontal = "true" />
+
+    <TextView
+        android:text = "Nama Petugas"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/lable_nama_petugas"
+        android:textSize = "14dp"
+        android:layout_below="@+id/textview"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:background="@drawable/bg_shadow"
+        android:layout_below="@+id/lable_nama_petugas"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Masukkan Nama Petugas"
+        android:textSize="16sp"
+        android:textColorHint="@color/cardview_shadow_start_color"
+        android:id = "@+id/nama_petugas"
+      />
+
+    <ImageButton
+        android:id="@+id/btn_cari_petugas"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toEndOf="@+id/nama_petugas"
+        android:layout_below="@+id/lable_nama_petugas"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_custom3"
+        android:src="@drawable/ic_cari"
+        app:tint="@color/white" />
+
+    <TextView
+        android:text = "Kategori Hewan"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/lable_kategori_hewan"
+        android:textSize = "14dp"
+        android:layout_below="@+id/nama_petugas"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"/>
+
+    <RadioGroup
+        android:id="@+id/nama_kategori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/lable_kategori_hewan"
+        >
+        <RadioButton
+            android:id="@+id/rb_ternak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hewan Ternak"
+            android:textColor="#858787"
+            android:buttonTint="@color/blue"
+            />
+
+        <RadioButton
+            android:id="@+id/rb_kesayangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hewan Kesayangan"
+            android:textColor="#858787"
+            android:buttonTint="@color/blue"
+            />
+
+    </RadioGroup>
+
+    <TextView
+        android:text = "Jenis Hewan"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/lable_jenis_hewan"
+        android:textSize = "14dp"
+        android:layout_below="@+id/nama_kategori"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"/>
+
+<!--    <EditText-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="10dip"-->
+<!--        android:background="@drawable/bg_shadow"-->
+<!--        android:layout_below="@+id/lable_jenis_hewan"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:hint="Masukkan Jenis Hewan"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textColorHint="@color/cardview_shadow_start_color"-->
+<!--        android:id = "@+id/jenis_hewan"-->
+<!--        android:inputType="text" />-->
+
+    <Spinner
+        android:id="@+id/jenis_hewan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lable_jenis_hewan"
+        android:spinnerMode="dialog"
+        android:layout_marginLeft="8dp"/>
+
+    <ImageButton
+        android:id="@+id/btn_cari_kategori"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toEndOf="@+id/jenis_hewan"
+        android:layout_below="@+id/lable_jenis_hewan"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_custom3"
+        android:src="@drawable/ic_cari"
+        app:tint="@color/white" />
+
+    <TextView
+        android:text = "Nama Hewan"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/lable_nama_hewan"
+        android:textSize = "14dp"
+        android:layout_below="@+id/jenis_hewan"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:background="@drawable/bg_shadow"
+        android:layout_below="@+id/lable_nama_hewan"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Masukkan Nama Hewan"
+        android:textSize="16sp"
+        android:textColorHint="@color/cardview_shadow_start_color"
+        android:id = "@+id/nama_hewan"
+        android:inputType="text" />
+
+    <TextView
+        android:text = "Keluhan"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/lable_keluhan"
+        android:textSize = "14dp"
+        android:layout_below="@+id/nama_hewan"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:padding="10dip"
+        android:background="@drawable/bg_shadow"
+        android:layout_below="@+id/lable_keluhan"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Masukkan Keluhan"
+        android:textColorHint="@color/cardview_shadow_start_color"
+        android:id = "@+id/keluhan"
+        android:inputType = "text|textMultiLine" />
+
+    <Button
+        android:id="@+id/btn_kirim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/keluhan"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button_custom_utama"
+        android:text="Kirim"
+        android:textColor="@android:color/white" />
+
+       <Button
+        android:id="@+id/btn_batal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/btn_kirim"
+        android:background="@drawable/button_custom2"
+        android:text="Batal"
+        android:textColor="@color/blue" />
+</RelativeLayout>
+</ScrollView>

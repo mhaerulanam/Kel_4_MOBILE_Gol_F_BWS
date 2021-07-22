@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName;
 public class Artikel {
     @SerializedName("id_artikel")
     private int id;
-    @SerializedName("id_ktg")
-    private int idKtg;
+    @SerializedName("kategori_artikel")
+    private String idKtg;
     @SerializedName("tanggal")
     private String tanggal;
     @SerializedName("nama_penulis")
@@ -22,7 +22,7 @@ public class Artikel {
     @SerializedName("status")
     private String status;
 
-    public Artikel(int id, int idKtg, String tanggal, String namaPenulis, String judul, String isi, String gambar, String sumber, String status) {
+    public Artikel(int id, String idKtg, String tanggal, String namaPenulis, String judul, String isi, String gambar, String sumber, String status) {
         this.id = id;
         this.idKtg = idKtg;
         this.tanggal = tanggal;
@@ -42,11 +42,11 @@ public class Artikel {
         this.id = id;
     }
 
-    public int getIdKtg() {
+    public String getIdKtg() {
         return idKtg;
     }
 
-    public void setIdKtg(int idKtg) {
+    public void setIdKtg(String idKtg) {
         this.idKtg = idKtg;
     }
 

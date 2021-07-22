@@ -1,8 +1,11 @@
 package com.def.dokternak.ui.puskeswan;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,8 +33,10 @@ import static com.def.dokternak.network.ApiClient.PUSKESWAN_IMAGE_BASE_URL;
 public class DetailPuskeswanActivity extends AppCompatActivity {
     ApiPuskeswan mApiPuskeswan;
 
+    String url;
     private ImageView imgThumbnail;
     private TextView tvNamaPuskeswan, tvAlamat, tvJamKerja, tvMaps;
+    public Button btnLokasi;
     private ImageButton imgBtnBack;
 
     @Override
@@ -41,9 +46,10 @@ public class DetailPuskeswanActivity extends AppCompatActivity {
         mApiPuskeswan = ApiClient.getClient().create(ApiPuskeswan.class);
         imgThumbnail = findViewById(R.id.img_gambar_puskeswan);
         tvNamaPuskeswan = findViewById(R.id.tv_nama_puskeswan);
-        tvJamKerja = findViewById(R.id.tv_jam_kerja);
-        tvAlamat = findViewById(R.id.tv_alamat);
+        tvJamKerja = findViewById(R.id.tv_jadwal_puskeswan);
+        tvAlamat = findViewById(R.id.tv_alamat_puskeswan);
         tvMaps = findViewById(R.id.tv_maps);
+        btnLokasi = findViewById(R.id.btn_lokasi);
         imgBtnBack = findViewById(R.id.img_btn_back);
         imgBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +59,15 @@ public class DetailPuskeswanActivity extends AppCompatActivity {
         });
 
         getDetailPuskeswan();
+
+        btnLokasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
 
 
     }
@@ -67,13 +82,12 @@ public class DetailPuskeswanActivity extends AppCompatActivity {
                 tvNamaPuskeswan.setText(puskeswan.getNamaPuskeswan());
                 tvAlamat.setText(puskeswan.getAlamat());
                 tvJamKerja.setText(puskeswan.getJamKerja());
-                tvMaps.setText(puskeswan.getMaps());
+                url = puskeswan.getMaps();
                 Toast.makeText(getApplicationContext(), "Detail Puskeswan Tampil" + idPuskeswan, Toast.LENGTH_LONG).show();
                 Glide.with(getApplicationContext())
                         .load(PUSKESWAN_IMAGE_BASE_URL + puskeswan.getGambar())
                         .into(imgThumbnail);
             }
-
 
             @Override
             public void onFailure(Call<GetPuskeswanDetail> call, Throwable t) {

@@ -26,6 +26,7 @@
                     android:id="@+id/img_profile"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:src="@drawable/bg_gunung" />
@@ -33,21 +34,31 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="-13dp"
-                    android:layout_marginEnd="13dp"
-                    android:layout_toStartOf="@+id/ic_chat"
+                    android:layout_toStartOf="@+id/image_btnKonsultasi"
                     android:layout_toEndOf="@id/img_profile"
                     android:src="@drawable/logo_dokternak" />
 
-                <ImageView
-                    android:id="@+id/ic_chat"
+<!--                <ImageView-->
+<!--                    android:id="@+id/ic_chat"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignBottom="@+id/img_profile"-->
+<!--                    android:layout_alignParentTop="true"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:src="@drawable/ic_chat"-->
+<!--                    app:tint="@color/blue" />-->
+
+                <ImageButton
+                    android:id="@+id/image_btnKonsultasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/img_profile"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="12dp"
                     android:src="@drawable/ic_chat"
-                    app:tint="@color/blue" />
+                    android:background="@color/white"
+                    android:layout_gravity="center"/>
 
             </RelativeLayout>
 
@@ -62,148 +73,191 @@
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/cv_top"
             app:layout_constraintTop_toBottomOf="@id/cv_top"
-            tools:layout_editor_absoluteX="0dp" />
+            tools:layout_editor_absoluteX="0dp" >
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/lato_black"
-            android:text="@string/title"
-            android:textColor="@color/blue"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/banner" />
-
-        <SearchView
-            android:id="@+id/pencarian"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bg_shadow_search"
-            app:layout_constraintTop_toBottomOf="@id/title" />
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/pencarian">
-
-            <LinearLayout
+            <ImageView
+                android:id="@+id/img_banner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/pencarian">
+                android:background="@drawable/bg_gunung"
+                />
+        </androidx.cardview.widget.CardView>
 
-                <Button
-                    android:id="@+id/kategori_terdekat"
-                    style="@style/Widget.AppCompat.Button.Colored"
+<!--                <androidx.viewpager.widget.ViewPager-->
+<!--                    android:id="@+id/banner"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="140dp"-->
+<!--                    android:layout_margin="16dp"-->
+<!--                    app:cardBackgroundColor="@color/blue"-->
+<!--                    app:cardCornerRadius="20dp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/cv_top"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/cv_top"-->
+<!--                    app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+<!--                    tools:layout_editor_absoluteX="0dp" />-->
+                <LinearLayout
+                    android:id="@+id/SliderDots"
+                    android:layout_below="@+id/banner"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical|center_horizontal"
+                    app:layout_constraintBottom_toBottomOf="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/lato_black"
+                    android:text="@string/title"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/banner" />
+
+                <SearchView
+                    android:id="@+id/pencarian"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_shadow_search"
+                    app:layout_constraintTop_toBottomOf="@id/title" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/pencarian">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/pencarian">
+
+                        <Button
+                            android:id="@+id/kategori_terdekat"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:text="TERDEKAT"
+                            android:textColor="@color/blue"
+                            android:textSize="10sp"
+                            android:theme="@style/buttonstyle" />
+
+                        <Button
+                            android:id="@+id/kategori_semua"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:text="SEMUA"
+                            android:textColor="@color/blue"
+                            android:textSize="10sp"
+                            android:theme="@style/buttonstyle" />
+
+                        <Button
+                            android:id="@+id/kategori_dokter"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:text="DOKTER"
+                            android:textColor="@color/blue"
+                            android:textSize="10sp"
+                            android:theme="@style/buttonstyle" />
+
+                        <Button
+                            android:id="@+id/kategori_paramedis"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:text="PARAMEDIS"
+                            android:textColor="@color/blue"
+                            android:textSize="10sp"
+                            android:theme="@style/buttonstyle" />
+
+                        <Button
+                            android:id="@+id/kategori_petugas_ib"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:text="PETUGAS IB"
+                            android:textColor="@color/blue"
+                            android:textSize="10sp"
+                            android:theme="@style/buttonstyle" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/tvPetugas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="TERDEKAT"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="90dp"
+                    android:text="Petugas"
                     android:textColor="@color/blue"
-                    android:textSize="10sp"
-                    android:theme="@style/buttonstyle" />
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pencarian" />
 
-                <Button
-                    android:id="@+id/kategori_semua"
-                    style="@style/Widget.AppCompat.Button.Colored"
+                <TextView
+                    android:id="@+id/alert_data_kosong"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:fontFamily="@font/lato_black"
+                    android:text="@string/alertDataKosong"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPetugas" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_petugas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:scrollbars="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPetugas" />
+
+                <TextView
+                    android:id="@+id/tvArtikel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="SEMUA"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Artikel"
                     android:textColor="@color/blue"
-                    android:textSize="10sp"
-                    android:theme="@style/buttonstyle" />
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recyclerView_petugas" />
 
-                <Button
-                    android:id="@+id/kategori_dokter"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="wrap_content"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_artikel"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="DOKTER"
-                    android:textColor="@color/blue"
-                    android:textSize="10sp"
-                    android:theme="@style/buttonstyle" />
-
-                <Button
-                    android:id="@+id/kategori_paramedis"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="PARAMEDIS"
-                    android:textColor="@color/blue"
-                    android:textSize="10sp"
-                    android:theme="@style/buttonstyle" />
-
-                <Button
-                    android:id="@+id/kategori_petugas_ib"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:text="PETUGAS IB"
-                    android:textColor="@color/blue"
-                    android:textSize="10sp"
-                    android:theme="@style/buttonstyle" />
-
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <TextView
-            android:id="@+id/tvPetugas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="90dp"
-            android:text="Petugas"
-            android:textColor="@color/blue"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pencarian" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_petugas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:scrollbars="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPetugas" />
-
-        <TextView
-            android:id="@+id/tvArtikel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:text="Artikel"
-            android:textColor="@color/blue"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recyclerView_petugas" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_artikel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="20dp"
-            android:scrollbars="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvArtikel" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="20dp"
+                    android:scrollbars="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvArtikel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>

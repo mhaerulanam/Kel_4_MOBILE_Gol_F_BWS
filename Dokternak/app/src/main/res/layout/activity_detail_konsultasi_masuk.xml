@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.konsultasi.DetailKonsultasiMasukActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:padding="16dp">
+
+                <ImageButton
+                    android:id="@+id/img_btn_back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_back" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_profile"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_toEndOf="@id/img_btn_back"
+                    android:layout_marginStart="20dp"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/bg_gunung" />
+
+                <TextView
+                    android:id="@+id/tv_nama_dokter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/img_profile"
+                    android:text="Nama Petugas"
+                    android:layout_marginStart="20dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_tanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/img_profile"
+                    android:layout_below="@+id/tv_nama_dokter"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="10sp"
+                    android:text="Tanggal"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_kategori"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/img_profile"
+                    android:layout_alignParentEnd="true"
+                    android:textAlignment="textEnd"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="10sp"
+                    android:text="Kategori"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_nama_hewan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/tv_tanggal"
+                    android:layout_alignParentEnd="true"
+                    android:textAlignment="textEnd"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="10sp"
+                    android:text="Nama Hewan"
+                    />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+       <androidx.cardview.widget.CardView
+           android:layout_width="80dp"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="90dp"
+           app:cardCornerRadius="100dp"
+            android:layout_marginStart="180dp"
+           >
+           <RelativeLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Keluhan"
+                   android:textSize="10sp"
+                   android:textAlignment="center"
+                   android:layout_alignParentStart="true"
+                   android:layout_alignParentEnd="true"
+                   />
+           </RelativeLayout>
+       </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_keluhan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="30dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:padding="16dp"
+                >
+                <TextView
+                    android:id="@+id/tv_keluhan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:textAlignment="textStart"
+                    android:textSize="10sp"
+                    android:text="@string/lorem_ipsum"
+                    />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/cv_keluhan"
+            android:background="@color/dot_light_screen2" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/cv_keluhan"
+            app:cardCornerRadius="100dp"
+            android:layout_marginStart="180dp"
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Respon Konsultasi"
+                    android:textSize="10sp"
+                    android:textAlignment="center"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_respon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cv_keluhan"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="60dp"
+            app:cardCornerRadius="30dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:padding="16dp"
+                >
+                <TextView
+                    android:id="@+id/tv_respon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:textAlignment="textStart"
+                    android:textSize="10sp"
+                    android:text="@string/lorem_ipsum"
+                    />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/tv_tanggal_respon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="40dp"
+            android:layout_below="@id/cv_respon"
+            android:textSize="10sp"
+            android:text="tanggal respon"
+            android:textColor="@color/dot_light_screen4"
+            />
+    </RelativeLayout>
+
+
+</ScrollView>

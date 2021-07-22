@@ -2,12 +2,16 @@ package com.def.dokternak.ui.splashscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.def.dokternak.MainActivity;
 import com.def.dokternak.R;
 import com.def.dokternak.ui.welcome.WelcomeActivity;
+import com.def.dokternak.utils.PrefManager;
+import com.def.dokternak.utils.Preferences;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -30,5 +34,14 @@ public class SplashScreenActivity extends AppCompatActivity {
                 overridePendingTransition(R.layout.fadein_splash,R.layout.fadeout_splash);
             }
         },waktu_loading);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (Preferences.getLoggedInStatus(getBaseContext())){
+            startActivity(new Intent(getBaseContext(), MainActivity.class));
+            finish();
+        }
     }
 }
