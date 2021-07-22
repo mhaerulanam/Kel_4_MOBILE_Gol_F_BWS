@@ -77,7 +77,6 @@ public class DetailPetugasActivity extends AppCompatActivity {
                 tvJadwalKerja.setText(petugas.getJadwalKerja());
                 tvTelpon.setText(petugas.getTelpon());
                 tvJenisKelamin.setText(petugas.getJenisKelamin());
-                Toast.makeText(getApplicationContext(), "Detail Petugas Tampil" + idPetugas, Toast.LENGTH_LONG).show();
                 Glide.with(getApplicationContext())
                         .load(PETUGAS_IMAGE_BASE_URL + petugas.getFoto())
                         .into(imgThumbnail);

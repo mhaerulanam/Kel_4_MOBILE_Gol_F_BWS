@@ -82,7 +82,7 @@ public class ProfileFragment extends Fragment {
             salam = "Pagi";
         }else if (jam >= 10 && jam < 15) {
             salam = "Siang";
-        }else if (jam < 18) {
+        }else if (jam >= 15 && jam <= 18) {
             salam = "Sore";
         }else {
             salam = "Malam";

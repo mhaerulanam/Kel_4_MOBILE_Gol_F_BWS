@@ -8,6 +8,25 @@
     android:padding="18dp"
     android:orientation="vertical"
     tools:context=".ui.login.LoginActivity4">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:id="@+id/logo_dokternak"
+            android:layout_width="195dp"
+            android:layout_height="71dp"
+            android:layout_marginBottom="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_dokternak"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+  <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:background="@drawable/bg_shadow"
+      >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,14 +34,31 @@
         android:layout_marginHorizontal="15dp"
         android:orientation="vertical"
         android:paddingHorizontal="15dp">
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/logo_dokternak"
-            android:layout_width="195dp"
-            android:layout_height="71dp"
-            android:layout_marginBottom="100px"
-            android:layout_gravity="center"
-            android:src="@drawable/logo_dokternak" />
+            <TextView
+                android:id="@+id/tv_title"
+                android:text = "LOGIN AKUN"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_height = "wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:textSize = "20dp"
+                android:layout_centerHorizontal = "true" />
+            <TextView
+                android:id="@+id/salam"
+                android:layout_below="@+id/tv_title"
+                android:layout_centerHorizontal = "true"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selamat Datang Kembali!"/>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -159,6 +195,7 @@
             android:textColor="@color/dot_light_screen1" />
 
     </LinearLayout>
+</androidx.cardview.widget.CardView>
 
     <ProgressBar
         android:visibility="gone"

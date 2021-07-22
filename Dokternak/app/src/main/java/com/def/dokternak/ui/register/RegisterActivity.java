@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +19,15 @@ import com.def.dokternak.data.Model.users.PostUser;
 import com.def.dokternak.data.Model.users.User;
 import com.def.dokternak.network.ApiClient;
 import com.def.dokternak.network.users.ApiUser;
+import com.def.dokternak.ui.konsultasi.KonsultasiActivity;
+import com.def.dokternak.ui.konsultasi.TulisKonsultasiActivity;
 import com.def.dokternak.ui.login.LoginActivity;
 import com.def.dokternak.utils.Preferences;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,21 +35,55 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    Button btnRegister;
+    Button btnRegister, btnBackLogin;
     EditText edtNama, edtEmail, edtPassword;
 
     ProgressDialog loading;
     Context mContext;
     ApiUser apiUser;
+    TextView tvSalam;
+    String salam;
+    int jam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        tvSalam = findViewById(R.id.salam);
 
         edtNama = findViewById(R.id.edt_nama);
         edtEmail = findViewById(R.id.edt_email);
         edtPassword = findViewById(R.id.edt_password);
+        btnBackLogin =  findViewById(R.id.btn_back_login);
+
+        btnBackLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                finish();
+            }
+        });
+
+        Calendar c = Calendar.getInstance();
+        System.out.println("Current time => "+c.getTime());
+
+        SimpleDateFormat df = new SimpleDateFormat("H");
+        String jamku = df.format(c.getTime());
+
+        jam = Integer.parseInt(jamku);
+
+        if (jam >= 05 && jam < 10) {
+            salam = "Pagi";
+        }else if (jam >= 10 && jam < 15) {
+            salam = "Siang";
+        }else if (jam >= 15 && jam <= 18) {
+            salam = "Sore";
+        }else {
+            salam = "Malam";
+        }
+
+        tvSalam.setText("Selamat " + salam + "!");
+
 
         btnRegister = findViewById(R.id.btn_register);
 
@@ -91,8 +131,10 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NotNull Call<PostUser> call, @NotNull Response<PostUser> response) {
                 loading.dismiss();
-                Toast.makeText(getApplicationContext(), "Registrasi Berhasil!", Toast.LENGTH_LONG).show();
-                masuk(response.body().getData());
+//                masuk(response.body().getData());
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                Toast.makeText(getApplicationContext(), "Registrasi Berhasil Ditambah", Toast.LENGTH_SHORT).show();
+                finish();
                 //Pindah ke Main Activity
 //                Intent mIntent = new Intent(RegisterActivity.this, MainActivity.class);
 //                startActivity(mIntent);
@@ -125,13 +167,14 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     /** Menuju ke MainActivity dan Set User dan Status sedang login, di Preferences */
-    private void masuk(User user){
-        Preferences.setLoggedInUser(RegisterActivity.this, user.getEmail());
-        Preferences.setLoggedInStatus(getBaseContext(), true);
-        Preferences.saveData(RegisterActivity.this, user);
-        startActivity(new Intent(getBaseContext(),MainActivity.class));
-        finish();
-    }
+//    private void masuk(User user){
+//        Toast.makeText(RegisterActivity.this, "Registrasi Berhasil!", Toast.LENGTH_LONG).show();
+//        Preferences.setLoggedInUser(RegisterActivity.this, user.getEmail());
+//        Preferences.setLoggedInStatus(getBaseContext(), true);
+//        Preferences.saveData(RegisterActivity.this, user);
+//        startActivity(new Intent(getBaseContext(),MainActivity.class));
+//        finish();
+//    }
 
     @Override
     public void onBackPressed() {

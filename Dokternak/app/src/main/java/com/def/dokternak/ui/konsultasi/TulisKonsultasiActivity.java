@@ -146,7 +146,7 @@ public class TulisKonsultasiActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<postKonsultasi> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Konsultasi gagal", Toast.LENGTH_LONG).show();
                     }
                 });
             }

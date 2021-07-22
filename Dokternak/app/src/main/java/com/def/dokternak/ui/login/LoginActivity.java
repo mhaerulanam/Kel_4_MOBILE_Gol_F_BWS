@@ -23,6 +23,9 @@ import com.def.dokternak.network.users.ApiUser;
 import com.def.dokternak.ui.register.RegisterActivity;
 import com.def.dokternak.utils.Preferences;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,11 +34,15 @@ public class LoginActivity extends AppCompatActivity {
     EditText mViewUser, mViewPassword;
     ApiUser mApiUser;
     Button btnLogin;
+    TextView tvSalam;
+    String salam;
+    int jam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        tvSalam = findViewById(R.id.salam);
 
         /* Menginisialisasi variable dengan Form User dan Form Password dari Layout LoginActivity */
         mViewUser=findViewById(R.id.et_emailMasuk);
@@ -51,6 +58,28 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        Calendar c = Calendar.getInstance();
+        System.out.println("Current time => "+c.getTime());
+
+        SimpleDateFormat df = new SimpleDateFormat("H");
+        String jamku = df.format(c.getTime());
+
+        jam = Integer.parseInt(jamku);
+
+        if (jam >= 05 && jam < 10) {
+            salam = "Pagi";
+        }else if (jam >= 10 && jam < 15) {
+            salam = "Siang";
+        }else if (jam >= 15 && jam <= 18) {
+            salam = "Sore";
+        }else {
+            salam = "Malam";
+        }
+
+//        Toast.makeText(getApplicationContext(), salam,Toast.LENGTH_LONG).show();
+
+        tvSalam.setText("Selamat " + salam + "!");
 
         /* Menjalankan Method razia() jika merasakan tombol SignIn disentuh */
         findViewById(R.id.button_signinSignin).setOnClickListener(new View.OnClickListener() {
