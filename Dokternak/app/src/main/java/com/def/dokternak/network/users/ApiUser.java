@@ -27,4 +27,11 @@ public interface ApiUser {
                                 @Field("email") String email,
                                 @Field("is_admin") String role,
                                 @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("api_users/register/peternak")
+    Call<PostUser> postRegisterUser(
+                               @Field("name") String name,
+                               @Field("email") String email,
+                               @Field("password") String password);
 }

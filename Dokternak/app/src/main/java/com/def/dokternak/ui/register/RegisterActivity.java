@@ -2,107 +2,129 @@ package com.def.dokternak.ui.register;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.def.dokternak.MainActivity;
 import com.def.dokternak.R;
+import com.def.dokternak.data.Model.users.PostUser;
+import com.def.dokternak.network.ApiClient;
+import com.def.dokternak.network.users.ApiUser;
 import com.def.dokternak.utils.Preferences;
+
+import org.jetbrains.annotations.NotNull;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText mViewUser, mViewPassword, mViewRepassword;
+    Button btnRegister;
+    EditText edtNama, edtEmail, edtPassword;
+
+    ProgressDialog loading;
+    Context mContext;
+    ApiUser apiUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        /* Menginisialisasi variable dengan Form User, Form Password, dan Form Repassword
-        dari Layout RegisterActivity */
-        mViewUser =findViewById(R.id.et_emailSignup);
-        mViewPassword =findViewById(R.id.et_passwordSignup);
-        mViewRepassword =findViewById(R.id.et_passwordSignup2);
+        edtNama = findViewById(R.id.edt_nama);
+        edtEmail = findViewById(R.id.edt_email);
+        edtPassword = findViewById(R.id.edt_password);
 
-        /* Menjalankan Method razia() jika merasakan tombol SignUp di keyboard disentuh */
-        mViewRepassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_NULL) {
-                    razia();
-                    return true;
-                }
-                return false;
-            }
-        });
-        /* Menjalankan Method razia() jika merasakan tombol SignUp disentuh */
-        findViewById(R.id.button_signupSignup).setOnClickListener(new View.OnClickListener() {
+        btnRegister = findViewById(R.id.btn_register);
+
+        mContext = this;
+//        apiUser = ApiClient.getAPIUser();
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                razia();
+                validasi();
             }
         });
     }
-    /** Men-check inputan User dan Password dan Memberikan akses ke MainActivity */
-    private void razia(){
-        /* Mereset semua Error dan fokus menjadi default */
-        mViewUser.setError(null);
-        mViewPassword.setError(null);
-        mViewRepassword.setError(null);
-        View fokus = null;
-        boolean cancel = false;
 
-        /* Mengambil text dari Form User, Password, Repassword dengan variable baru bertipe String*/
-        String repassword = mViewRepassword.getText().toString();
-        String user = mViewUser.getText().toString();
-        String password = mViewPassword.getText().toString();
+    private void validasi() {
+        String mName = edtNama.getText().toString().trim();
+        String mEmail = edtEmail.getText().toString().trim();
+        String mPassword = edtPassword.getText().toString().trim();
 
-        /* Jika form user kosong atau MEMENUHI kriteria di Method cekUser() maka, Set error di Form-
-         * User dengan menset variable fokus dan error di Viewnya juga cancel menjadi true*/
-        if (TextUtils.isEmpty(user)){
-            mViewUser.setError("This field is required");
-            fokus = mViewUser;
-            cancel = true;
-        }else if(cekUser(user)){
-            mViewUser.setError("This Username is already exist");
-            fokus = mViewUser;
-            cancel = true;
+        if (TextUtils.isEmpty(mName)) {
+            edtNama.setError("Nama tidak boleh kosong");
+            edtNama.requestFocus();
+            return;
+        } else if (TextUtils.isEmpty(mEmail)) {
+            edtEmail.setError("Email tidak boleh kosong");
+            edtEmail.requestFocus();
+            return;
+        } else if (TextUtils.isEmpty(mPassword)) {
+            edtPassword.setError("Password tidak boleh kosong");
+            edtPassword.requestFocus();
+            return;
+        }else {
+            loading = ProgressDialog.show(mContext, null,
+                    "Harap Tunggu...", true, false);
+            requestRegister();
         }
 
-        /* Jika form password kosong dan MEMENUHI kriteria di Method cekPassword maka,
-         * Reaksinya sama dengan percabangan User di atas. Bedanya untuk Password dan Repassword*/
-        if (TextUtils.isEmpty(password)){
-            mViewPassword.setError("This field is required");
-            fokus = mViewPassword;
-            cancel = true;
-        }else if (!cekPassword(password,repassword)){
-            mViewRepassword.setError("This password is incorrect");
-            fokus = mViewRepassword;
-            cancel = true;
-        }
-
-        /** Jika cancel true, variable fokus mendapatkan fokus. Jika false, maka
-         *  Kembali ke LoginActivity dan Set User dan Password untuk data yang terdaftar */
-        if (cancel){
-            fokus.requestFocus();
-        }else{
-            Preferences.setRegisteredUser(getBaseContext(),user);
-            Preferences.setRegisteredPass(getBaseContext(),password);
-            finish();
-        }
     }
 
-    /** True jika parameter password sama dengan parameter repassword */
-    private boolean cekPassword(String password, String repassword){
-        return password.equals(repassword);
+    private void requestRegister() {
+        apiUser = ApiClient.getClient().create(ApiUser.class);
+        Call<PostUser> registerResponseCall = apiUser.postRegisterUser(edtNama.getText().toString(),
+                edtEmail.getText().toString(),edtPassword.getText().toString());
+        registerResponseCall.enqueue(new Callback<PostUser>() {
+            @Override
+            public void onResponse(@NotNull Call<PostUser> call, @NotNull Response<PostUser> response) {
+                loading.dismiss();
+                Toast.makeText(getApplicationContext(), "Registrasi Berhasil!", Toast.LENGTH_LONG).show();
+
+                //Pindah ke Main Activity
+                Intent mIntent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(mIntent);
+                finish();
+
+//                if (response.isSuccessful()){
+//                    loading.dismiss();
+//                    try {
+//                        JSONObject jsonRESULTS = new JSONObject(response.body().toString());
+//                        if (jsonRESULTS.getString("success").equals("1")){
+//                            Toast.makeText(mContext, "Register Berhasil!",
+//                                    Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            String error_message = jsonRESULTS.getString("error_msg");
+//                            Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                } else {
+//                    loading.dismiss();
+//                }
+            }
+
+            @Override
+            public void onFailure(Call<PostUser> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
-    /** True jika parameter user sama dengan data user yang terdaftar dari Preferences */
-    private boolean cekUser(String user){
-        return user.equals(Preferences.getRegisteredUser(getBaseContext()));
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

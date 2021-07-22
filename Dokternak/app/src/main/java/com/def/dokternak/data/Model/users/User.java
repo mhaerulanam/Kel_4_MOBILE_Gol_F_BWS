@@ -6,19 +6,18 @@ public class User {
     @SerializedName("id")
     private int id;
     @SerializedName("name")
-    private String namaUser;
+    private String name;
     @SerializedName("email")
     private String email;
-    @SerializedName("is_admin")
-    private String role;
+//    @SerializedName("is_admin")
+//    private String role;
     @SerializedName("password")
     private String password;
 
-    public User(int id, String namaUser, String email, String role, String password) {
+    public User(int id, String name, String email, String password) {
         this.id = id;
-        this.namaUser = namaUser;
+        this.name = name;
         this.email = email;
-        this.role = role;
         this.password = password;
     }
 
@@ -30,12 +29,12 @@ public class User {
         this.id = id;
     }
 
-    public String getNamaUser() {
-        return namaUser;
+    public String getName() {
+        return name;
     }
 
-    public void setNamaUser(String namaUser) {
-        this.namaUser = namaUser;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -44,14 +43,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public String getPassword() {

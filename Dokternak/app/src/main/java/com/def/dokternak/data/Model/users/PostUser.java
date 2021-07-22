@@ -9,11 +9,11 @@ public class PostUser {
     @SerializedName("status")
     String status;
     @SerializedName("data")
-    String data;
+    User data;
     @SerializedName("message")
     String message;
 
-    public PostUser(String status, String data, String message) {
+    public PostUser(String status, User data, String message) {
         this.status = status;
         this.data = data;
         this.message = message;
@@ -27,11 +27,11 @@ public class PostUser {
         this.status = status;
     }
 
-    public String getData() {
+    public User getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(User data) {
         this.data = data;
     }
 
