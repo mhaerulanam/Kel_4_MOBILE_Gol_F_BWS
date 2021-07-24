@@ -6,7 +6,7 @@
     android:layout_marginEnd="4dp"
     android:layout_marginBottom="8dp"
     android:orientation="vertical"
-    android:layout_height="200dp"
+    android:layout_height="210dp"
     android:background="@drawable/bg_shadow"
     >
 
@@ -29,18 +29,17 @@
 <!--        />-->
 
         <TextView
-            android:id="@+id/tvId"
+            android:id="@+id/tvIdKtg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
-            android:textColor="@color/white"
             android:textSize="8sp" />
 
         <TextView
-            android:id="@+id/tvIdKtg"
+            android:id="@+id/tvId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -62,7 +61,7 @@
 
         <TextView
             android:id="@+id/tvJudul"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_below="@id/ivGambar"

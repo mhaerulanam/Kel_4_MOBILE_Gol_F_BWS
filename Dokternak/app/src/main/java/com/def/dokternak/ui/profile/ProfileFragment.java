@@ -16,8 +16,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.def.dokternak.R;
+import com.def.dokternak.ui.konsultasi.DetailKonsultasiMasukActivity;
+import com.def.dokternak.ui.konsultasi.KonsultasiActivity;
+import com.def.dokternak.ui.konsultasi.TulisKonsultasiActivity;
 import com.def.dokternak.ui.login.LoginActivity;
 import com.def.dokternak.ui.login.LoginActivity4;
+import com.def.dokternak.ui.petugas.DetailPetugasActivity;
 import com.def.dokternak.utils.Preferences;
 
 import java.text.SimpleDateFormat;
@@ -30,7 +34,7 @@ public class ProfileFragment extends Fragment {
     View view;
     TextView nama;
     String salam;
-    int jam;
+    int jam, id;
     private ImageView imgThumbnail, imgNoHp, imgJk, imgAlamat;
     public TextView tvNamaUser, tvEmailUser, tvNoHpUser, tvJenisKelaminUser, tvAlamatUser, tvSalam;
 
@@ -48,6 +52,18 @@ public class ProfileFragment extends Fragment {
                 Toast.makeText(getContext(), "Log Out Berhasil", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 getActivity().finish();
+            }
+        });
+
+        id = Preferences.getId(getContext());
+
+        Button btnEdit = view.findViewById(R.id.button_editProfile);
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(view.getContext(), EditProfilActivity.class);
+                mIntent.putExtra("id", id);
+                view.getContext().startActivity(mIntent);
             }
         });
 

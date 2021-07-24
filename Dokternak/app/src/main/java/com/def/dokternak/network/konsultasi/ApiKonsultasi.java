@@ -5,12 +5,14 @@ import com.def.dokternak.data.Model.konsultasi.GetKonsultasiMasukDetail;
 import com.def.dokternak.data.Model.konsultasi.GetKonsultasiTerkirim;
 import com.def.dokternak.data.Model.konsultasi.GetKonsultasiMasuk;
 import com.def.dokternak.data.Model.konsultasi.GetKonsultasiTerkirimDetail;
+import com.def.dokternak.data.Model.konsultasi.deleteKonsultasi;
 import com.def.dokternak.data.Model.konsultasi.postKonsultasi;
 import com.def.dokternak.data.Model.petugas.GetCariPetugas;
 import com.def.dokternak.data.Model.petugas.GetPetugasDetail;
 import com.def.dokternak.data.Model.petugas.postPutDelPetugas;
 
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -38,6 +40,12 @@ public interface ApiKonsultasi {
 
     @GET("api_konsultasi/detailterkirim/{id}")
     Call<GetKonsultasiTerkirimDetail> getKonsultasiTerkirimDetail(@Path("id") int id_konsultasi);
+
+    @HTTP(method = "DELETE", path = "api_konsultasi/{id_konsultasi}/hapusterkirim", hasBody = true)
+    Call<deleteKonsultasi> deleteKonsultasi(@Path("id_konsultasi") int id_konsultasi);
+
+    @HTTP(method = "DELETE", path = "api_konsultasi/{id_konsultasi}/hapusmasuk", hasBody = true)
+    Call<deleteKonsultasi> deleteRiwayatKonsultasi(@Path("id_konsultasi") int id_konsultasi);
 
     @FormUrlEncoded
     @POST("api_konsultasi")

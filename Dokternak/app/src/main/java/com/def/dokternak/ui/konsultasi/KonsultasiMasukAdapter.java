@@ -45,6 +45,7 @@ public class KonsultasiMasukAdapter extends RecyclerView.Adapter<KonsultasiMasuk
             public void onClick(View view) {
                 Intent mIntent = new Intent(view.getContext(), DetailKonsultasiMasukActivity.class);
                 mIntent.putExtra("id_riwayat", mKonsultasiList.get(position).getId_riwayat());
+                mIntent.putExtra("id_konsultasi", mKonsultasiList.get(position).getId_konsultasi());
                 int id_riwayat = mKonsultasiList.get(position).getId_riwayat();
                 view.getContext().startActivity(mIntent);
             }

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:id="@+id/activity_insert"
+    tools:context=".ui.profile.EditProfilActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:text = "Update Profile"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/textview"
+        android:textSize = "20dp"
+        android:layout_alignParentTop = "true"
+        android:layout_centerHorizontal = "true" />
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/img_profil"-->
+<!--        android:elevation="20dp"-->
+<!--        android:src="@drawable/bg_gunung"-->
+<!--        android:layout_marginTop="45dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp" />-->
+
+    <TextView
+        android:text = "Nama"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/lable_nama_peternak"
+        android:textSize = "14dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp" />
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_below="@+id/img_profil"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+<!--        <Button-->
+<!--            android:id="@+id/btngallery"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:background="@drawable/button_custom_utama"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:layout_marginTop="14dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:textSize="10dp"-->
+<!--            android:text="Update Foto" />-->
+
+<!--    </LinearLayout>-->
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginEnd="40dp"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:background="@drawable/bg_shadow"
+        android:layout_below="@+id/lable_nama_peternak"
+        android:layout_marginStart="16dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Masukkan Nama Petugas"
+        android:textSize="16sp"
+        android:textColorHint="@color/cardview_shadow_start_color"
+        android:id = "@+id/edt_nama_peternak"
+      />
+
+    <TextView
+        android:text = "Email"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/lable_email_peternak"
+        android:textSize = "14dp"
+        android:layout_below="@+id/edt_nama_peternak"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginEnd="40dp"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:background="@drawable/bg_shadow"
+        android:layout_below="@+id/lable_email_peternak"
+        android:layout_marginStart="16dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="Masukkan Email Petugas"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:textColorHint="@color/cardview_shadow_start_color"
+        android:id = "@+id/edt_email_peternak"
+        />
+
+        <TextView
+            android:text = "No HandPhone/Whatsapp"
+            android:layout_width="wrap_content"
+            android:layout_height = "wrap_content"
+            android:id = "@+id/lable_no_hp_peternak"
+            android:textSize = "14dp"
+            android:layout_below="@+id/edt_email_peternak"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_marginEnd="40dp"
+            android:layout_height="wrap_content"
+            android:padding="10dip"
+            android:background="@drawable/bg_shadow"
+            android:layout_below="@+id/lable_no_hp_peternak"
+            android:layout_marginStart="16dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="Masukkan Nomer Hp"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:textColorHint="@color/cardview_shadow_start_color"
+            android:id = "@+id/edt_no_hp_peternak"
+            />
+
+
+        <TextView
+            android:text = "Jenis Kelamin"
+            android:layout_width="wrap_content"
+            android:layout_height = "wrap_content"
+            android:id = "@+id/lable_jenis_kelamin"
+            android:textSize = "14dp"
+            android:layout_below="@+id/edt_no_hp_peternak"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+            <RadioGroup
+                android:id="@+id/nama_jk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/lable_jenis_kelamin"
+            >
+            <RadioButton
+                    android:id="@+id/rb_laki_laki"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Laki-Laki"
+                    android:textColor="#858787"
+                    android:buttonTint="@color/blue"
+                    android:checked="false"
+                    />
+
+                <RadioButton
+                    android:id="@+id/rb_perempuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Perempuan"
+                    android:textColor="#858787"
+                    android:checked="false"
+                    android:buttonTint="@color/blue"
+                    />
+            </RadioGroup>
+
+        <TextView
+            android:text = "Alamat"
+            android:layout_width="wrap_content"
+            android:layout_height = "wrap_content"
+            android:id = "@+id/lable_alamat"
+            android:textSize = "14dp"
+            android:layout_below="@+id/lable_jenis_kelamin"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_marginEnd="40dp"
+            android:padding="10dip"
+            android:background="@drawable/bg_shadow"
+            android:layout_below="@+id/lable_alamat"
+            android:layout_marginStart="16dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="Masukkan Alamat"
+            android:layout_height="130dp"
+            android:inputType="text|textMultiLine"
+            android:gravity="top"
+            android:textSize="16sp"
+            android:textColorHint="@color/cardview_shadow_start_color"
+            android:id = "@+id/edt_alamat_peternak"
+            />
+
+    <Button
+        android:id="@+id/btn_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt_alamat_peternak"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button_custom_utama"
+        android:text="Edit"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btn_batal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="24dp"
+        android:layout_below="@id/btn_edit"
+        android:background="@drawable/button_custom2"
+        android:text="Batal"
+        android:textColor="@color/blue" />
+</RelativeLayout>
+</ScrollView>

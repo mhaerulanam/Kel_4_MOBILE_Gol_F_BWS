@@ -77,6 +77,7 @@ public class Home extends Fragment {
         View view=  inflater.inflate(R.layout.fragment_home, container, false);
 
         tvalert = view.findViewById(R.id.alert_data_kosong);
+        tvalert.setVisibility(View.INVISIBLE);
 
         mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView = view.findViewById(R.id.recyclerView_petugas);

@@ -64,6 +64,18 @@ public class Preferences {
         return  id_peternak;
     }
 
+    public static  int getId(Context context) {
+        SharedPreferences pref = context.getSharedPreferences("DATA_PREFERENCES", Context.MODE_PRIVATE);
+        int id = pref.getInt("id", 0);
+        return  id;
+    }
+
+    public static String getPassword(Context context) {
+        SharedPreferences pref = context.getSharedPreferences("DATA_PREFERENCES", Context.MODE_PRIVATE);
+        String password = pref.getString("password", null);
+        return password;
+    }
+
     /** Deklarasi Edit Preferences dan mengubah data
      *  yang memiliki key isi KEY_USER_TEREGISTER dengan parameter username */
     public static void setRegisteredUser(Context context, String username){
@@ -103,6 +115,26 @@ public class Preferences {
         editor.putString("jenis_kelamin",user.getJenisKelamin());
         editor.putString("alamat", user.getAlamat());
         editor.putString("foto_peternak",user.getFotoPeternak());
+        editor.putString("password", user.getPassword());
+//        editor.putString(KEY_USERNAME_SEDANG_LOGIN, user.getEmail());
+//        editor.putBoolean(KEY_STATUS_SEDANG_LOGIN, true);
+        editor.apply();
+    }
+
+    public static void updateData(Context context, User user) {
+        SharedPreferences pref = context.getSharedPreferences("DATA_PREFERENCES", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt("id", user.getId());
+        editor.putInt("id_peternak",user.getId_peternak());
+        editor.putString("nama_peternak", user.getNamaUser());
+        editor.putString("namadepan_peternak",user.getNamaPeternak());
+        editor.putString("namabelakang_peternak",user.getNamaBelakangPeternak());
+        editor.putString("email",user.getEmail());
+        editor.putString("is_admin", user.getRole());
+        editor.putString("email_peternak", user.getEmailPeternak());
+        editor.putString("no_hp",user.getNoHp());
+        editor.putString("jenis_kelamin",user.getJenisKelamin());
+        editor.putString("alamat", user.getAlamat());
         editor.putString("password", user.getPassword());
 //        editor.putString(KEY_USERNAME_SEDANG_LOGIN, user.getEmail());
 //        editor.putBoolean(KEY_STATUS_SEDANG_LOGIN, true);

@@ -3,6 +3,9 @@
     package="com.def.dokternak">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -21,6 +24,7 @@
         <activity
             android:name=".ui.artikel.DetailArtikelActivity"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".ui.profile.EditProfilActivity"/>
         <activity android:name=".ui.puskeswan.DetailPuskeswanActivity"/>
         <activity android:name=".ui.konsultasi.TulisKonsultasiActivity"/>
         <activity android:name=".ui.petugas.DetailPetugasActivity" />

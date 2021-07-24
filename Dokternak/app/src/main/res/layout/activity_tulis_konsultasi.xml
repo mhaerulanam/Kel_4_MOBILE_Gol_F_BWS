@@ -28,13 +28,26 @@
         android:layout_below="@+id/textview"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp" />
+    <ImageButton
+        android:id="@+id/btn_cari_petugas"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_below="@+id/lable_nama_petugas"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_custom3"
+        android:src="@drawable/ic_cari"
+        app:tint="@color/white" />
 
     <EditText
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
+        android:layout_marginEnd="40dp"
         android:layout_height="wrap_content"
         android:padding="10dip"
         android:background="@drawable/bg_shadow"
         android:layout_below="@+id/lable_nama_petugas"
+        android:layout_toEndOf="@+id/btn_cari_petugas"
+        android:layout_marginStart="16dp"
         android:layout_margin="10dp"
         android:layout_marginTop="10dp"
         android:hint="Masukkan Nama Petugas"
@@ -42,17 +55,6 @@
         android:textColorHint="@color/cardview_shadow_start_color"
         android:id = "@+id/nama_petugas"
       />
-
-    <ImageButton
-        android:id="@+id/btn_cari_petugas"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_toEndOf="@+id/nama_petugas"
-        android:layout_below="@+id/lable_nama_petugas"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button_custom3"
-        android:src="@drawable/ic_cari"
-        app:tint="@color/white" />
 
     <TextView
         android:text = "Kategori Hewan"

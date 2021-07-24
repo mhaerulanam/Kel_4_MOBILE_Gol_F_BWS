@@ -71,6 +71,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.MyViewHo
 //            mTextViewNamaPenulis = (TextView) itemView.findViewById(R.id.tvNamaPenulis);
             mTextViewJudul = (TextView) itemView.findViewById(R.id.tvJudul);
             imgThumbnail = itemView.findViewById(R.id.ivGambar);
+            mTextViewId.setVisibility(View.INVISIBLE);
         }
     }
 }

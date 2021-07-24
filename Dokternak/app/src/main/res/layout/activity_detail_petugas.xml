@@ -36,6 +36,29 @@
                 android:background="@drawable/bg_button"
                 android:src="@drawable/ic_back" />
 
+                <ImageButton
+                    android:id="@+id/img_btn_telepone"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_gravity="top|right"
+                    android:background="@drawable/bg_button"
+                    android:src="@drawable/ic_baseline_local_phone_24" />
+
+                <ImageButton
+                    android:id="@+id/img_btn_wa"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="120dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_gravity="top|right"
+                    android:background="@drawable/bg_button"
+                    android:src="@drawable/wa"/>
+
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -93,7 +116,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:background="@drawable/bg_shadow"
                 app:cardCornerRadius="20dp"
@@ -141,6 +164,7 @@
                     <TextView
                         android:id="@+id/tv_tempat"
                         android:layout_width="280dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/jenis_kelamin"
                         android:layout_toEndOf="@+id/email"
@@ -167,6 +191,7 @@
                         android:layout_below="@+id/tempat"
                         android:layout_toEndOf="@+id/email"
                         android:text="Tempat  : "
+                        android:layout_marginEnd="16dp"
                         android:textSize="12sp" />
 
                     <TextView
@@ -188,6 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/email"
                         android:layout_toEndOf="@+id/email"
+                        android:layout_marginEnd="16dp"
                         android:text="Telepone : "
                         android:textSize="12sp" />
 
@@ -210,6 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/telpon"
                         android:layout_toEndOf="@+id/email"
+                        android:layout_marginEnd="16dp"
                         android:text="Alamat  : "
                         android:textSize="12sp" />
 
@@ -219,7 +246,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/alamat"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="32dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="16dp"
                         android:text="Jadwal                  : "
@@ -229,20 +256,25 @@
 
                     <TextView
                         android:id="@+id/tv_jadwal"
-                        android:layout_width="280dp"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/alamat"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
                         android:layout_toEndOf="@+id/email"
                         android:text="Jadwal  : "
                         android:textSize="12sp" />
                 </RelativeLayout>
-
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btn_konsultasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="@dimen/fab_margin"
+                    app:srcCompat="@drawable/ic_baseline_message_24" />
             </androidx.cardview.widget.CardView>
-
         </RelativeLayout>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

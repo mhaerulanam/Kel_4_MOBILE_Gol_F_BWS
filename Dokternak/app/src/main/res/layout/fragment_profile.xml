@@ -44,7 +44,6 @@
                     android:layout_width="130dp"
                     android:layout_height="130dp" />
 
-
             </LinearLayout>
             <androidx.cardview.widget.CardView
                 android:layout_width="400dp"
@@ -99,14 +98,15 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:src="@drawable/ic_email_black_24dp"/>
+
                 <TextView
                     android:id="@+id/tv_emailUser"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
-                    android:text="Anam@gmail.com"/>
+                    android:text="Anam@gmail.com"
+                    android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
                 android:layout_marginTop="25dp"
@@ -125,7 +125,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
+                    android:paddingLeft="25dp"
                     android:text="+266 225 225"/>
             </LinearLayout>
             <LinearLayout
@@ -178,26 +178,28 @@
                 android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
                 android:gravity="center_horizontal"
                 >
                 //Button Logout
-<!--                <Button-->
-<!--                    android:id="@+id/button_editProfile"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:background="@drawable/button_custom2"-->
-<!--                    android:textColor="@color/dark"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Edit Profile"-->
-<!--                    android:layout_alignParentBottom="true"-->
-<!--                    android:textSize="10dp"-->
-<!--                    android:layout_marginEnd="20dp"-->
-<!--                    />-->
+                <Button
+                    android:id="@+id/button_editProfile"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/button_custom2"
+                    android:textColor="@color/dark"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Profile"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="10dp"
+                    android:layout_marginEnd="20dp"
+                    />
 
                 <Button
                     android:id="@+id/button_logoutMain"
                     android:layout_width="wrap_content"
                     android:background="@drawable/button_custom_utama"
                     android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/button_editProfile"
                     android:text="Log Out"
                     android:textSize="10dp"
                     android:layout_alignParentBottom="true"

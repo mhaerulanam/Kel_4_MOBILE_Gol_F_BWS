@@ -1,5 +1,6 @@
 package com.def.dokternak.ui.konsultasi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.def.dokternak.R;
 import com.def.dokternak.data.Model.konsultasi.GetKonsultasiMasukDetail;
 import com.def.dokternak.data.Model.konsultasi.Konsultasi;
 import com.def.dokternak.data.Model.konsultasi.RiwayatKonsultasi;
+import com.def.dokternak.data.Model.konsultasi.deleteKonsultasi;
 import com.def.dokternak.data.Model.petugas.GetPetugasDetail;
 import com.def.dokternak.data.Model.petugas.Petugas;
 import com.def.dokternak.network.ApiClient;
@@ -32,7 +34,8 @@ public class DetailKonsultasiMasukActivity extends AppCompatActivity {
 
     private ImageView imgThumbnail;
     private TextView tvNamaDokter, tvTanggal, tvKategori, tvNamaHewan, tvKeluhan, tvRespon, tvTanggalRespon;
-    private ImageButton imgBtnBack;
+    private ImageButton imgBtnBack, imgBtnHapus;
+    int id_konsultasi;
 
 
     @Override
@@ -49,11 +52,33 @@ public class DetailKonsultasiMasukActivity extends AppCompatActivity {
         tvRespon = findViewById(R.id.tv_respon);
         tvTanggalRespon = findViewById(R.id.tv_tanggal_respon);
         imgBtnBack = findViewById(R.id.img_btn_back);
+        imgBtnHapus = findViewById(R.id.img_hapus);
         getDetailKonsultasiMasuk();
         imgBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        id_konsultasi = getIntent().getIntExtra("id_konsultasi", 0);
+
+        imgBtnHapus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Call<deleteKonsultasi> deleteKonsul = mApiKonsultasi.deleteRiwayatKonsultasi(id_konsultasi);
+                deleteKonsul.enqueue(new Callback<deleteKonsultasi>() {
+                    @Override
+                    public void onResponse(Call<deleteKonsultasi> call, Response<deleteKonsultasi> response) {
+                        Toast.makeText(getApplicationContext(), "Hapus konsultasi masuk berhasil!", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(DetailKonsultasiMasukActivity.this, KonsultasiActivity.class));
+                        finish();
+                    }
+                    @Override
+                    public void onFailure(Call<deleteKonsultasi> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
 
@@ -86,4 +111,6 @@ public class DetailKonsultasiMasukActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
