@@ -68,6 +68,7 @@ public class PetugasAdapter extends RecyclerView.Adapter<PetugasAdapter.MyViewHo
             mTextViewJabatan = itemView.findViewById(R.id.tv_jabatan);
             mTextViewTempat = itemView.findViewById(R.id.tv_tempat);
             imgThumbnail = itemView.findViewById(R.id.img);
+            mTextViewId.setVisibility(View.INVISIBLE);
         }
     }
 }

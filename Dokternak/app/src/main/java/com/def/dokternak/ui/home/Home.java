@@ -1,6 +1,8 @@
 package com.def.dokternak.ui.home;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -39,9 +41,12 @@ import com.def.dokternak.network.artikel.ApiArtikel;
 import com.def.dokternak.network.petugas.ApiPetugas;
 import com.def.dokternak.ui.artikel.ArtikelAdapter;
 import com.def.dokternak.ui.konsultasi.KonsultasiActivity;
+import com.def.dokternak.ui.login.LoginActivity;
 import com.def.dokternak.ui.petugas.DetailPetugasActivity;
 import com.def.dokternak.ui.petugas.PetugasAdapter;
 import com.def.dokternak.ui.petugas.PetugasFragment;
+import com.def.dokternak.ui.profile.EditProfilActivity;
+import com.def.dokternak.ui.profile.ProfileFragment;
 import com.def.dokternak.utils.Preferences;
 
 import org.jetbrains.annotations.Nullable;
@@ -116,9 +121,14 @@ public class Home extends Fragment {
         btnTerdekat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Tombol kategori terdekat", Toast.LENGTH_LONG).show();
+              //terdekat
+                Toast.makeText(getContext(), "Kategori terdekat", Toast.LENGTH_LONG).show();
                 alamat = Preferences.getAlamat(getContext());
-                GetDataTerdekatPetugas(alamat);
+                if (alamat.equals("")){
+                    showDialog();
+                }else{
+                    GetDataTerdekatPetugas(alamat);
+                }
             }
         });
 
@@ -269,5 +279,38 @@ public class Home extends Fragment {
                 Log.e("Retrofit Get", t.toString());
             }
         });
+    }
+
+    private void showDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+        // set title dialog
+        alertDialogBuilder.setTitle("Hai! " + Preferences.getNama(getContext()) +", untuk mencari lokasi terdekat.");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("Silahkan lengkapi data diri Anda!")
+//                .setIcon(R.mipmap.ic_launcher)
+                .setCancelable(false)
+                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // jika tombol diklik, maka akan menutup activity ini
+                        startActivity(new Intent(getActivity().getBaseContext(), EditProfilActivity.class));
+                        getActivity();
+
+                    }
+                })
+                .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // jika tombol ini diklik, akan menutup dialog
+                        // dan tidak terjadi apa2
+                        dialog.cancel();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
     }
 }

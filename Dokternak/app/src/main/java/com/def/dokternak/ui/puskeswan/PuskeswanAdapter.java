@@ -73,6 +73,7 @@ public class PuskeswanAdapter extends RecyclerView.Adapter<PuskeswanAdapter.MyVi
             mTextViewNamaPuskeswan = itemView.findViewById(R.id.tv_namaPuskeswan);
             mTextViewAlamat = itemView.findViewById(R.id.tv_alamatPuskeswan);
             imgThumbnail = itemView.findViewById(R.id.img_gamabarPuskeswan);
+            mTextViewId.setVisibility(View.INVISIBLE);
         }
     }
 }

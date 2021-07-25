@@ -1,5 +1,7 @@
 package com.def.dokternak.ui.konsultasi;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -72,9 +74,7 @@ public class DetailKonsultasiMasukActivity extends AppCompatActivity {
                 deleteKonsul.enqueue(new Callback<deleteKonsultasi>() {
                     @Override
                     public void onResponse(Call<deleteKonsultasi> call, Response<deleteKonsultasi> response) {
-                        Toast.makeText(getApplicationContext(), "Hapus konsultasi masuk berhasil!", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(DetailKonsultasiMasukActivity.this, KonsultasiActivity.class));
-                        finish();
+                      showDialog();
                     }
                     @Override
                     public void onFailure(Call<deleteKonsultasi> call, Throwable t) {
@@ -112,6 +112,39 @@ public class DetailKonsultasiMasukActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void showDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        // set title dialog
+        alertDialogBuilder.setTitle("Apakah Anda yakin mau menghapus konultasi ini?");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+//                .setMessage("Klik "+"''"+" untuk keluar!")
+//                .setIcon(R.mipmap.ic_launcher)
+                .setCancelable(false)
+                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // jika tombol diklik, maka akan menutup activity ini
+                        Toast.makeText(getApplicationContext(), "Hapus konsultasi masuk berhasil!", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(DetailKonsultasiMasukActivity.this, KonsultasiActivity.class));
+                        finish();
+                    }
+                })
+                .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // jika tombol ini diklik, akan menutup dialog
+                        // dan tidak terjadi apa2
+                        dialog.cancel();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
     }
 
 

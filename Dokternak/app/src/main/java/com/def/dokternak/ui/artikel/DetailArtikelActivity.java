@@ -2,6 +2,7 @@ package com.def.dokternak.ui.artikel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,11 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.def.dokternak.MainActivity;
 import com.def.dokternak.R;
 import com.def.dokternak.data.Model.artikel.Artikel;
 import com.def.dokternak.data.Model.artikel.GetArtikelDetail;
 import com.def.dokternak.network.ApiClient;
 import com.def.dokternak.network.artikel.ApiArtikel;
+import com.def.dokternak.ui.konsultasi.TulisKonsultasiActivity;
+import com.def.dokternak.ui.petugas.DetailPetugasActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +35,7 @@ public class DetailArtikelActivity extends AppCompatActivity {
     private ImageView imgThumbnail;
     private TextView tvKategori, tvTanggal, tvNamaPenulis, tvJudul, tvIsi, tvSumber;
     private ImageButton imgBtnBack;
+    int id;
 
 
     @Override
@@ -45,15 +51,23 @@ public class DetailArtikelActivity extends AppCompatActivity {
         tvIsi = findViewById(R.id.tv_isi);
         tvSumber = findViewById(R.id.tv_sumber);
 
-        imgBtnBack = findViewById(R.id.img_btn_back);
-        imgBtnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+//        imgBtnBack = findViewById(R.id.img_btn_back);
+//        imgBtnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
 
         getDetailArtikel();
+
+        FloatingActionButton fab = findViewById(R.id.img_btn_back);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((DetailArtikelActivity)view.getContext()).finish();
+            }
+        });
 
 
     }
@@ -75,6 +89,7 @@ public class DetailArtikelActivity extends AppCompatActivity {
                 Glide.with(getApplicationContext())
                         .load(ARTIKEL_IMAGE_BASE_URL + artikel.getGambar())
                         .into(imgThumbnail);
+                id = artikel.getId();
             }
 
             @Override

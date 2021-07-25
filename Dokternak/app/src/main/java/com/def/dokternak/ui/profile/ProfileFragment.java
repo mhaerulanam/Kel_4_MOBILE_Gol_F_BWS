@@ -1,5 +1,7 @@
 package com.def.dokternak.ui.profile;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.def.dokternak.MainActivity;
 import com.def.dokternak.R;
 import com.def.dokternak.ui.konsultasi.DetailKonsultasiMasukActivity;
 import com.def.dokternak.ui.konsultasi.KonsultasiActivity;
@@ -37,6 +40,7 @@ public class ProfileFragment extends Fragment {
     int jam, id;
     private ImageView imgThumbnail, imgNoHp, imgJk, imgAlamat;
     public TextView tvNamaUser, tvEmailUser, tvNoHpUser, tvJenisKelaminUser, tvAlamatUser, tvSalam;
+    String namaUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,10 +52,12 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Menghapus Status login dan kembali ke Login Activity
-                Preferences.clearLoggedInUser(getActivity().getBaseContext());
-                Toast.makeText(getContext(), "Log Out Berhasil", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
-                getActivity().finish();
+//                Preferences.clearLoggedInUser(getActivity().getBaseContext());
+//                Toast.makeText(getContext(), "Log Out Berhasil", Toast.LENGTH_LONG).show();
+//                startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
+//                getActivity().finish();
+
+                showDialog();
             }
         });
 
@@ -106,7 +112,7 @@ public class ProfileFragment extends Fragment {
 
         tvSalam.setText("Selamat " + salam + "!");
 
-        String namaUser = Preferences.getNama(getContext());
+        namaUser = Preferences.getNama(getContext());
         String emailUser = Preferences.getEmail(getContext());
         String noHpUser = Preferences.getNoHp(getContext());
         String jk = Preferences.getJenisKelamin(getContext());
@@ -137,5 +143,39 @@ public class ProfileFragment extends Fragment {
                 .into(imgThumbnail);
 
         return view;
+    }
+
+    private void showDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+        // set title dialog
+        alertDialogBuilder.setTitle("Hai! " + namaUser +", Apakah Anda yakin mau Logout dari aplikasi?");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+//                .setMessage("Klik "+"''"+" untuk keluar!")
+//                .setIcon(R.mipmap.ic_launcher)
+                .setCancelable(false)
+                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // jika tombol diklik, maka akan menutup activity ini
+                        Preferences.clearLoggedInUser(getActivity().getBaseContext());
+                        Toast.makeText(getContext(), "Log Out Berhasil", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
+                        getActivity().finish();
+                    }
+                })
+                .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // jika tombol ini diklik, akan menutup dialog
+                        // dan tidak terjadi apa2
+                        dialog.cancel();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
     }
 }

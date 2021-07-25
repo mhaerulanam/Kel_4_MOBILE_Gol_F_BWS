@@ -119,8 +119,8 @@ public class TulisKonsultasiActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 jum = (int) parent.getItemIdAtPosition(position);
                 id_jenis  = jum + 1;
-                String selectedName = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(),"Aku milih jenis hewan " + selectedName, Toast.LENGTH_LONG).show();
+//                String selectedName = parent.getItemAtPosition(position).toString();
+//                Toast.makeText(getApplicationContext(),"Aku milih jenis hewan " + selectedName, Toast.LENGTH_LONG).show();
 //                requestDetailDosen(selectedName);
             }
 
