@@ -1,5 +1,6 @@
 package com.def.dokternak.ui.konsultasi;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.def.dokternak.R;
@@ -25,6 +27,7 @@ import com.def.dokternak.network.petugas.ApiPetugas;
 import com.def.dokternak.ui.petugas.PetugasAdapter;
 import com.def.dokternak.ui.petugas.PetugasFragment;
 import com.def.dokternak.utils.Preferences;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -65,6 +68,24 @@ public class KontakMasukFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_kontak_masuk, container, false);
+
+//        FloatingActionButton fab = view.findViewById(R.id.tulis_konsultasi);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//               Intent in = new Intent(view.getContext(), CariPetugasActivity.class);
+//               view.getContext().startActivity(in);
+//            }
+//        });
+
+        ImageButton imgKontakKonsultasi = view.findViewById(R.id.tulis_konsultasi_kontak);
+        imgKontakKonsultasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(view.getContext(), CariPetugasActivity.class);
+                view.getContext().startActivity(in);
+            }
+        });
         return view;
     }
 

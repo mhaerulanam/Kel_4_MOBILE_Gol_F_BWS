@@ -42,16 +42,16 @@ public class KonsultasiActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(viewPager);
 
-        FloatingActionButton fab = findViewById(R.id.tulis_konsultasi);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-                startActivity(new Intent(KonsultasiActivity.this, TulisKonsultasiActivity.class));
-            }
-        });
+//        FloatingActionButton fab = findViewById(R.id.tulis_konsultasi);
+//
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+////                        .setAction("Action", null).show();
+//                startActivity(new Intent(KonsultasiActivity.this, TulisKonsultasiActivity.class));
+//            }
+//        });
 
         imgBtnBack = findViewById(R.id.img_btn_back);
         imgBtnBack.setOnClickListener(new View.OnClickListener() {

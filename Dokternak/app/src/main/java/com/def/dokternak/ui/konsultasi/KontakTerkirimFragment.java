@@ -1,5 +1,6 @@
 package com.def.dokternak.ui.konsultasi;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,18 +13,25 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.def.dokternak.R;
 import com.def.dokternak.data.Model.konsultasi.GetKonsultasiTerkirim;
 import com.def.dokternak.data.Model.konsultasi.Konsultasi;
+import com.def.dokternak.data.Model.konsultasi.deleteKonsultasi;
 import com.def.dokternak.data.Model.petugas.GetPetugas;
 import com.def.dokternak.data.Model.petugas.Petugas;
 import com.def.dokternak.network.ApiClient;
 import com.def.dokternak.network.konsultasi.ApiKonsultasi;
 import com.def.dokternak.network.petugas.ApiPetugas;
+import com.def.dokternak.ui.login.LoginActivity;
 import com.def.dokternak.ui.petugas.PetugasAdapter;
+import com.def.dokternak.ui.profile.EditProfilActivity;
 import com.def.dokternak.utils.Preferences;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -43,6 +51,7 @@ public class KontakTerkirimFragment extends Fragment {
     private KonsultasiTerkirimAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private TextView tvalert;
+
     int id_peternak;
     public static KontakTerkirimFragment ma;
 
@@ -64,6 +73,24 @@ public class KontakTerkirimFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_kontak_terkirim, container, false);
+
+//        FloatingActionButton fab = view.findViewById(R.id.tulis_konsultasi);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent in = new Intent(view.getContext(), TulisKonsultasiActivity.class);
+//                view.getContext().startActivity(in);
+//            }
+//        });
+
+        ImageButton imgTulisKonsultasi = view.findViewById(R.id.tulis_konsultasi);
+        imgTulisKonsultasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(view.getContext(), TulisKonsultasiActivity.class);
+                view.getContext().startActivity(in);
+            }
+        });
         return view;
     }
 

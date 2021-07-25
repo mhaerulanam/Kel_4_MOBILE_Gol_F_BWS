@@ -16,18 +16,18 @@ public class ApiClient {
 //    public static final String PUSKESWAN_IMAGE_BASE_URL = "http://www.webservice.dokternak.id/public/data/data_puskeswan/";
 
     //URI Hosting workshopjti
-    public static final String BASE_URL = "http://dokternak.workshopjti.com/api/";
-    public static final String ARTIKEL_IMAGE_BASE_URL = "http://dokternak.workshopjti.com/data/data_artikel/";
-    public static final String PETUGAS_IMAGE_BASE_URL = "http://dokternak.workshopjti.com/data/data_dokter/";
-    public static final String PETERNAK_IMAGE_BASE_URL = "http://dokternak.workshopjti.com/data/data_peternak/";
-    public static final String PUSKESWAN_IMAGE_BASE_URL = "http://dokternak.workshopjti.com/data/data_puskeswan/";
+//    public static final String BASE_URL = "http://dokternak.workshopjti.com/api/";
+//    public static final String ARTIKEL_IMAGE_BASE_URL = "http://dokternak.workshopjti.com/data/data_artikel/";
+//    public static final String PETUGAS_IMAGE_BASE_URL = "http://dokternak.workshopjti.com/data/data_dokter/";
+//    public static final String PETERNAK_IMAGE_BASE_URL = "http://dokternak.workshopjti.com/data/data_peternak/";
+//    public static final String PUSKESWAN_IMAGE_BASE_URL = "http://dokternak.workshopjti.com/data/data_puskeswan/";
 
     //URI Hosting WSJTI
-//    public static final String BASE_URL = "https://wsjti.id/dokternaK/api/";
-//    public static final String ARTIKEL_IMAGE_BASE_URL = "https://wsjti.id/dokternak/data/data_artikel/";
-//    public static final String PETUGAS_IMAGE_BASE_URL = "https://wsjti.id/dokternak/data/data_dokter/";
-//    public static final String PETERNAK_IMAGE_BASE_URL = "https://wsjti.id/dokternak/data/data_peternak/";
-//    public static final String PUSKESWAN_IMAGE_BASE_URL = "https://wsjti.id/dokternak/data/data_puskeswan/";
+    public static final String BASE_URL = "https://wsjti.id/dokternak/api/";
+    public static final String ARTIKEL_IMAGE_BASE_URL = "https://wsjti.id/dokternak/public/data/data_artikel/";
+        public static final String PETUGAS_IMAGE_BASE_URL = "https://wsjti.id/dokternak/public/data/data_dokter/";
+    public static final String PETERNAK_IMAGE_BASE_URL = "https://wsjti.id/dokternak/public/data/data_peternak/";
+    public static final String PUSKESWAN_IMAGE_BASE_URL = "https://wsjti.id/dokternak/public/data/data_puskeswan/";
 
 //    public static final String BASE_URL = "http://192.168.0.102:8080/api/";
 //    public static final String ARTIKEL_IMAGE_BASE_URL = "http://192.168.0.102:8080/data/data_artikel/";

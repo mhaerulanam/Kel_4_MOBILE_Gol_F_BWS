@@ -52,7 +52,7 @@ public class TulisKonsultasiActivity extends AppCompatActivity {
     ApiKonsultasi mApiKonsultasi;
     ApiKategori mApiJenis;
     Context mContext;
-    int id_kategori, id_peternak,id_dokter, id_jenis;
+    int id_kategori, id_peternak,id_dokter, id_jenis , jum;
 
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -117,8 +117,10 @@ public class TulisKonsultasiActivity extends AppCompatActivity {
         jenis_hewan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                id_jenis = (int) parent.getItemIdAtPosition(position);
+                jum = (int) parent.getItemIdAtPosition(position);
+                id_jenis  = jum + 1;
                 String selectedName = parent.getItemAtPosition(position).toString();
+                Toast.makeText(getApplicationContext(),"Aku milih jenis hewan " + selectedName, Toast.LENGTH_LONG).show();
 //                requestDetailDosen(selectedName);
             }
 
@@ -181,7 +183,7 @@ public class TulisKonsultasiActivity extends AppCompatActivity {
         id_dokter = getIntent().getIntExtra("id_dokter", 0);
         String nama = getIntent().getStringExtra("nama_dokter");
 
-        id_jenis = getIntent().getIntExtra("id_ktg",0);
+//        id_jenis = getIntent().getIntExtra("id_ktg",0);
         String jenis = getIntent().getStringExtra("kategori_artikel");
         super.onResume();
         if (id_dokter != 0 && nama != null){
