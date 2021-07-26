@@ -117,7 +117,7 @@ public class DetailKonsultasiMasukActivity extends AppCompatActivity {
     private void showDialog(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         // set title dialog
-        alertDialogBuilder.setTitle("Apakah Anda yakin mau menghapus konultasi ini?");
+        alertDialogBuilder.setTitle("Apakah Anda yakin mau menghapus konsultasi ini?");
 
         // set pesan dari dialog
         alertDialogBuilder

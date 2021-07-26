@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="18dp"
+    android:background="#31F1F1F1"
     android:orientation="vertical"
     tools:context=".ui.login.LoginActivity4">
     <RelativeLayout

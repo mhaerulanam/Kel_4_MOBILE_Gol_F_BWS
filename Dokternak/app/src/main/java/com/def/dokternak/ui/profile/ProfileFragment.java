@@ -148,7 +148,7 @@ public class ProfileFragment extends Fragment {
     private void showDialog(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
         // set title dialog
-        alertDialogBuilder.setTitle("Hai! " + namaUser +", Apakah Anda yakin mau Logout dari aplikasi?");
+        alertDialogBuilder.setTitle("Hai " + namaUser +"!, Apakah Anda yakin mau logout dari aplikasi Dokternak?");
 
         // set pesan dari dialog
         alertDialogBuilder
