@@ -173,7 +173,6 @@
                     android:layout_alignParentEnd="true"
                     android:textAlignment="textStart"
                     android:textSize="10sp"
-                    android:text="@string/lorem_ipsum"
                     />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -227,7 +226,6 @@
                     android:layout_alignParentEnd="true"
                     android:textAlignment="textStart"
                     android:textSize="10sp"
-                    android:text="@string/lorem_ipsum"
                     />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
