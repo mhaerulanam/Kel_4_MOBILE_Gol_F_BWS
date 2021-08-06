@@ -98,10 +98,10 @@ public class DetailPetugasActivity extends AppCompatActivity {
                         Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(DetailPetugasActivity.this,
                             new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
-                    Toast.makeText(DetailPetugasActivity.this,"Silahkan untuk menelfon kembali!",Toast.LENGTH_LONG).show();
-                }else{
-                    showDialog();
                 }
+
+                showDialog();
+
             }
         });
 
@@ -163,8 +163,6 @@ public class DetailPetugasActivity extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
-                        // jika tombol diklik, maka akan menutup activity ini
-                        Preferences.clearLoggedInUser(getApplication().getBaseContext());
                         Toast.makeText(DetailPetugasActivity.this,"Telepon " + nama,Toast.LENGTH_LONG).show();
                         Intent intentCall = new Intent(Intent.ACTION_CALL);
                         intentCall.setData(Uri.parse("tel:" +"+"+ nohp));
