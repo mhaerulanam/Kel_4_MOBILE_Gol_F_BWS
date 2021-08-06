@@ -1,6 +1,8 @@
 package com.def.dokternak.ui.petugas;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -29,6 +31,8 @@ import com.def.dokternak.network.artikel.ApiArtikel;
 import com.def.dokternak.network.petugas.ApiPetugas;
 import com.def.dokternak.ui.konsultasi.KonsultasiActivity;
 import com.def.dokternak.ui.konsultasi.TulisKonsultasiActivity;
+import com.def.dokternak.ui.login.LoginActivity;
+import com.def.dokternak.utils.Preferences;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import retrofit2.Call;
@@ -46,7 +50,7 @@ public class DetailPetugasActivity extends AppCompatActivity {
     private ImageView imgThumbnail;
     private TextView tvNamaDokter, tvJabatan, tvEmail, tvJenisKelamin, tvAlamat, tvTempat, tvTelpon, tvJadwalKerja;
     private ImageButton imgBtnBack, imgTelepone, imgWa;
-    String nohp, nama;
+    String nohp, nama, namaUser;
     int idDokter;
 
 
@@ -75,6 +79,7 @@ public class DetailPetugasActivity extends AppCompatActivity {
         });
 
         getDetailPetugas();
+        namaUser = Preferences.getNama(getApplicationContext());
 
         imgWa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,15 +94,13 @@ public class DetailPetugasActivity extends AppCompatActivity {
         imgTelepone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentCall = new Intent(Intent.ACTION_CALL);
-                intentCall.setData(Uri.parse("tel:" +"+"+ nohp));
                 if (ContextCompat.checkSelfPermission(DetailPetugasActivity.this,
                         Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(DetailPetugasActivity.this,
+                    ActivityCompat.requestPermissions(DetailPetugasActivity.this,
                             new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
-                } else {
-                    Toast.makeText(getApplicationContext(),"Telepon " + nama,Toast.LENGTH_LONG).show();
-                    startActivity(intentCall);
+                    Toast.makeText(DetailPetugasActivity.this,"Silahkan untuk menelfon kembali!",Toast.LENGTH_LONG).show();
+                }else{
+                    showDialog();
                 }
             }
         });
@@ -145,5 +148,41 @@ public class DetailPetugasActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    private void showDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(DetailPetugasActivity.this);
+        // set title dialog
+        alertDialogBuilder.setTitle("Hai " + namaUser +"!");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("Apakah Anda yakin mau menelfon "+ nama +" ?")
+//                .setIcon(R.mipmap.ic_launcher)
+                .setCancelable(false)
+                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // jika tombol diklik, maka akan menutup activity ini
+                        Preferences.clearLoggedInUser(getApplication().getBaseContext());
+                        Toast.makeText(DetailPetugasActivity.this,"Telepon " + nama,Toast.LENGTH_LONG).show();
+                        Intent intentCall = new Intent(Intent.ACTION_CALL);
+                        intentCall.setData(Uri.parse("tel:" +"+"+ nohp));
+                        startActivity(intentCall);
+                    }
+                })
+                .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // jika tombol ini diklik, akan menutup dialog
+                        // dan tidak terjadi apa2
+                        dialog.cancel();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
     }
 }

@@ -236,7 +236,7 @@
                     android:gravity="center"
                     android:textColor="#CACACA"
                     android:textSize="10sp"
-                    android:text="Versi : 1.21.3.07"/>
+                    android:text="Versi : 1.21.4.08"/>
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

@@ -171,7 +171,7 @@
             </RadioGroup>
 
         <TextView
-            android:text = "Alamat"
+            android:text = "Alamat Kecamatan"
             android:layout_width="wrap_content"
             android:layout_height = "wrap_content"
             android:id = "@+id/lable_alamat"

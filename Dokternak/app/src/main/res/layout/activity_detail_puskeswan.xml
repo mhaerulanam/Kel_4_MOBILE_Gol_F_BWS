@@ -35,6 +35,17 @@
                 android:background="@drawable/bg_button"
                 android:src="@drawable/ic_back" />
 
+            <ImageButton
+                android:id="@+id/img_btn_wa"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="20dp"
+                android:layout_gravity="top|right"
+                android:background="@drawable/bg_button"
+                android:src="@drawable/wa"/>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView

@@ -15,14 +15,17 @@ public class Puskeswan {
     private String gambar;
     @SerializedName("maps")
     private String maps;
+    @SerializedName("nomer")
+    private String nomer;
 
-    public Puskeswan(int id, String namaPuskeswan, String alamat, String jamKerja, String gambar, String maps) {
+    public Puskeswan(int id, String namaPuskeswan, String alamat, String jamKerja, String gambar, String maps, String nomer) {
         this.id = id;
         this.namaPuskeswan = namaPuskeswan;
         this.alamat = alamat;
         this.jamKerja = jamKerja;
         this.gambar = gambar;
         this.maps = maps;
+        this.nomer = nomer;
     }
 
     public int getId() {
@@ -57,7 +60,6 @@ public class Puskeswan {
         this.jamKerja = jamKerja;
     }
 
-
     public String getGambar() {
         return gambar;
     }
@@ -70,7 +72,15 @@ public class Puskeswan {
         return maps;
     }
 
-    public void setMaps(String maps) { this.maps = maps;
+    public void setMaps(String maps) {
+        this.maps = maps;
     }
 
+    public String getNomer() {
+        return nomer;
+    }
+
+    public void setNomer(String nomer) {
+        this.nomer = nomer;
+    }
 }

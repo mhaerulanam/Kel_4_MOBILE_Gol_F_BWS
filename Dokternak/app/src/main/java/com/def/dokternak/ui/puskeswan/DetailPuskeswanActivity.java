@@ -37,7 +37,8 @@ public class DetailPuskeswanActivity extends AppCompatActivity {
     private ImageView imgThumbnail;
     private TextView tvNamaPuskeswan, tvAlamat, tvJamKerja, tvMaps;
     public Button btnLokasi;
-    private ImageButton imgBtnBack;
+    private ImageButton imgBtnBack, imgWa;
+    String nohp, nama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class DetailPuskeswanActivity extends AppCompatActivity {
         tvAlamat = findViewById(R.id.tv_alamat_puskeswan);
         btnLokasi = findViewById(R.id.btn_lokasi);
         imgBtnBack = findViewById(R.id.img_btn_back);
+        imgWa = findViewById(R.id.img_btn_wa);
         imgBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +61,18 @@ public class DetailPuskeswanActivity extends AppCompatActivity {
 
         getDetailPuskeswan();
 
+        imgWa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"Nomer WA Koordinator " + nama,Toast.LENGTH_LONG).show();
+                String contact = nohp; // use country code with your phone number
+                String url = "https://api.whatsapp.com/send?phone=" + contact;
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
         btnLokasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +81,7 @@ public class DetailPuskeswanActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
 
 
     }
@@ -85,6 +100,8 @@ public class DetailPuskeswanActivity extends AppCompatActivity {
                 Glide.with(getApplicationContext())
                         .load(PUSKESWAN_IMAGE_BASE_URL + puskeswan.getGambar())
                         .into(imgThumbnail);
+                nohp = puskeswan.getNomer();
+                nama = puskeswan.getNamaPuskeswan();
             }
 
             @Override
